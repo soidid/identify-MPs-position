@@ -11,6 +11,7 @@ export default React.createClass({
   getInitialState() {
     return {
       showIssueOptions: false,
+      showFilterPanel: false,
       currentIssue: "所有議題"
     };
   },
@@ -18,6 +19,11 @@ export default React.createClass({
   _toggleIssueOptions() {
       this.setState({
         showIssueOptions: !this.state.showIssueOptions
+      });
+  },
+    _toggleFilterPanel() {
+      this.setState({
+        showFilterPanel: !this.state.showFilterPanel
       });
   },
   _setCurrentIssue(value) {
@@ -28,7 +34,8 @@ export default React.createClass({
   },
 
   render() {
-    var { showIssueOptions, currentIssue } = this.state;
+    var { showIssueOptions, currentIssue, showFilterPanel } = this.state;
+    
     var issueOptionClasses = classNames({
         "AppBar-issueOptions" : true,
         "is-show" : showIssueOptions
@@ -53,6 +60,7 @@ export default React.createClass({
                onClick={this._toggleIssueOptions}>
                <span className="AppBar-titleText">{currentIssue}</span>
                <Icon icon={toggleIcon}/></div>
+          
           <div className={issueOptionClasses}>
               <ul className="AppBar-issueOptionItems">
                 {issueItems}
@@ -60,7 +68,10 @@ export default React.createClass({
           </div>
 
           <div className="AppBar-item AppBar-right">
-               <Icon icon={"cog"}/>
+              <Icon icon={"cog"}/>
+          </div>
+
+          <div className="AppBar-filterPanel">
           </div>
           
       </div>);
