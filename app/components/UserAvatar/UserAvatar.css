@@ -1,0 +1,10 @@
+.UserAvatar {
+	width: 30px;
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: top;
+}
+.UserAvatar-img {
+	border-radius: 4px;
+	width: 100%;
+}

@@ -1,0 +1,195 @@
+:root {
+    --AppColor: rgb(234,94,91);
+    --AppTextColor: white;
+}
+.Record {
+	display: inline-block;
+	border: 1px solid rgb(220,220,220);
+	width: calc(100% - 10px);
+	vertical-align: top;
+	margin: 6px 4px;
+	
+	text-align: left;
+	background: white;
+
+	text-decoration: none;
+	color: rgb(53,55,54);
+	position: relative;
+}
+
+.Record:hover {
+	
+}
+.Record-topRight {
+	position: absolute;
+	right: 8px;
+	top: 10px;
+	padding: 10px 12px;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 50%;
+	color: rgb(100,100,100);
+}
+.Record-topRight:hover {
+	background: #f3f3f3;
+}
+.Record-title {
+    padding: 14px 8px;
+    font-weight: 800;
+    font-size: 18px;
+    margin-left: 10px;
+    
+}
+.Record-meta {
+	color: rgb(140,140,140);
+    font-size: 14px;
+    display: inline-block;
+    font-weight: 400;
+    vertical-align: top;
+    padding-top: 18px;
+    padding-left: 4px;
+}
+.Reocrd-date {
+  	font-size: 14px;
+  	color: gray;
+  	position: absolute;
+    top: 55px;
+    left: 72px;
+    font-weight: 400;
+}
+.Record-subject {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 16px;
+	margin-left: 3px;
+
+}
+
+.Record-tooltip {
+	position: absolute;
+	top: 36px;
+	right: -1px;
+	z-index: 10;
+	width: 140px;
+	border-radius: 2px;
+	background: white;
+	box-shadow: 1px 2px 2px 1px rgba(0,0,0,0.08), -1px -1px 2px 1px rgba(0,0,0,0.08);
+	padding: 10px 0;
+}
+
+.Record-tooltip:before {
+	content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 10px;
+    margin-left: -8px;
+    width: 0; height: 0;
+    border-bottom: 9px solid rgb(220,220,220);
+    border-right: 9px solid transparent;
+    border-left: 9px solid transparent;
+
+}
+.Record-tooltip:after {
+	content: '';
+    position: absolute;
+    bottom: 100%;
+    right: 11px;
+    margin-left: -8px;
+    width: 0; height: 0;
+    border-bottom: 8px solid white;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+
+}
+.Record-tooltipItem {
+	padding: 8px 10px;
+}
+.Record-tooltipItem:hover{
+    background: var(--AppColor);
+    color: white;
+}
+.Record-quote {
+	line-height: 1.6;
+  	border-left: 10px solid rgb(220,220,220);
+  	padding: 0px 20px;
+}
+.Record-editedBy {
+	padding: 10px 26px 20px 26px;
+    font-size: 14px;
+
+}
+.Record-link, .Record-link:visited {
+	color: rgb(100,100,100);
+	text-decoration: none;
+	cursor: pointer;
+}
+.Record-link:hover {
+	text-decoration: underline;
+}
+.Record-numberText {
+	width: 60px;
+	display: inline-block;
+	text-align: right;
+}
+.Record-colorText {
+	color: rgb(53,55,54);
+}
+.Record-tag {
+	padding: 10px;
+    color: rgb(83,95,94);
+    border-top: 1px solid rgb(234,236,233);
+    background: #f3f3f3;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Heiti TC", "Apple LiGothic Medium", "微軟正黑體", sans-serif;
+    position: relative;
+    padding-right: 50px;
+}
+.Record-tagArea {
+	padding: 10px 5px;
+    color: rgb(83,95,94);
+    border-top: 1px solid rgb(234,236,233);
+    background: #f3f3f3;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Heiti TC", "Apple LiGothic Medium", "微軟正黑體", sans-serif;
+    position: relative;
+    
+}
+.Record-tagArea:hover {
+	background: rgb(230,230,230);
+}
+
+.Record-userImg {
+	width: 32px;
+  	height: 32px;
+  	margin-top: 2px;
+  	border-radius: 4px;
+  	position: absolute;
+}
+.Record-promptTag {
+	padding: 0 0 4px 4px;
+}
+.Record-promptWrap {
+	margin-left: 38px;
+    width: 100%;
+}
+.Record-tagLabel {
+	display: inline-block;
+    padding: 2px 8px;
+    margin: 2px;
+    cursor: pointer;
+    border: 1px solid color(var(--AppColor) blackness(20%) lightness(85%)); 
+    color: var(--AppColor);
+    background: rgb(250,250,250);
+}
+.Record-tagLabel:hover {
+	background: var(--AppColor);
+	color: white;
+	box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.08);
+	border: 1px solid var(--AppColor);
+	cursor: pointer;
+}
+
+
+
+
+

@@ -1,0 +1,96 @@
+:root {
+    --AppColor: rgb(234,94,91);
+    --AppTextColor: white;
+}
+
+.RecordList {
+	text-align: center;
+	
+	margin: 4px auto;
+	cursor: pointer;
+	
+	padding-bottom: 80px;
+}
+@media screen and (min-width: 600px){
+	.RecordList {
+		max-width: 600px;
+	}
+}
+.RecordList-back {
+	
+}
+.RecordList-title {
+	position: relative;
+	text-align: left;
+    padding: 2px 6px;
+    margin: 20px 0;
+    font-size: 18px;
+    color: rgb(100,100,100);
+    border-left: 6px solid rgb(153,155,154);
+}
+.RecordList-description {
+	margin-bottom: 30px;
+	line-height: 1.6;
+	text-align: left;
+	padding: 10px;
+	border: 1px dotted rgb(200,200,200);
+	margin: 5px;
+	background: white;
+	
+}
+.RecordList-candidatePre {
+	font-weight: 700;
+	font-size: 18px;
+}
+.RecordList-candidateState {
+	margin-top: 10px;
+	line-height: 1.6;
+}
+.RecordList-summary {
+	font-size: 20px;
+	font-weight: 800;
+	
+	
+	line-height: 1.4;
+	text-align: left;
+	
+	position: relative;
+}
+@media screen and (min-width: 600px){
+	.RecordList-summary  {
+		text-align: center;
+	}
+}
+
+.RecordList-tabs {
+	margin: 30px 0 20px 0;
+}
+.RecordList-tab {
+	display: inline-block;
+	color: var(--AppColor);
+    background: var(--AppTextColor);
+    border: 1px solid var(--AppColor);	
+    border-right: none;
+	padding: 6px 8px;
+	cursor: pointer;
+}
+.RecordList-tab.is-last {
+	border-right: 1px solid var(--AppColor);
+}
+.RecordList-tab.is-active {
+	color: var(--AppTextColor);
+    background: var(--AppColor);
+}
+.RecordList-btn {
+	padding: 10px 20px;
+	border: 1px solid rgb(153,155,154);
+	display: inline-block;
+	margin: 20px auto;
+	cursor: pointer;
+}
+.RecordList-btn:hover {
+	color: var(--AppColor);
+	border-color: var(--AppColor);
+}
+
+

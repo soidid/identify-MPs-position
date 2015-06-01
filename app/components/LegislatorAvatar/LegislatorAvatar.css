@@ -1,0 +1,51 @@
+.LegislatorAvatar {
+	display: inline-block;
+}
+.LegislatorAvatar-avatar {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+
+    //border: 1px solid rgb(220,220,220);
+    border-radius: 50%;
+    display: inline-block;
+} 
+/*
+.LegislatorAvatar-avatar.is-KMT {
+  border-color: #3288bd;
+}
+.LegislatorAvatar-avatar.is-DPP {
+   border-color: #7fbc41;
+}
+.LegislatorAvatar-avatar.is-PFP {
+   border-color: orange;
+}
+.LegislatorAvatar-avatar.is-TSU {
+   border-color: #b35806;
+}
+.LegislatorAvatar-avatar.is-NP {
+   border-color: gray;
+}
+.LegislatorAvatar-avatar.is-NPU {
+  border-color: rgba(194,15,81,0.9);
+  
+}*/
+
+.LegislatorAvatar-avatarPlain {
+    width: 40px;
+    height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+.LegislatorAvatar-name {
+	  display: inline-block;
+	  vertical-align: top;
+	  padding-top: 16px;
+	  margin-left: 5px;
+    text-align: center;
+}
+.LegislatorAvatar-namePlain {
+    margin-top: 2px;
+    text-align: center;
+}
