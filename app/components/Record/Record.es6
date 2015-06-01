@@ -49,22 +49,24 @@ export default class Record extends React.Component {
    
     var actionItem = (
         <div>
+            <div className="Record-currentTag">
             <div className="Record-tag">
-                <span className="Record-numberText">167 人</span> 標注為 <span className="Record-colorText"><Icon icon={"circle-o"}/>支持勞工權益</span>
+                <span className="Record-numberText">167 人</span> 標注為<Icon icon={"circle-o"}/>支持勞工權益
             </div>
             <div className="Record-tag">
-                <span className="Record-numberText">532 人</span> 標注為 <span className="Record-colorText"><Icon icon={"remove"}/>反對勞工權益</span>
+                <span className="Record-numberText">532 人</span> 標注為<Icon icon={"remove"}/>反對勞工權益
             </div>
             <div className="Record-tag">
-                <span className="Record-numberText">12 人</span> 標注為 <span className="Record-colorText"><Icon icon={"frown-o"}/>不明</span>
+                <span className="Record-numberText">12 人</span> 標注為<Icon icon={"question"}/>不明
+            </div>
             </div>
             <div className="Record-tagArea">
                 <img className="Record-userImg" src={userImg}/>
                 <div className="Record-promptWrap">
                     <div className="Record-promptTag">為{data.name}標注勞工表態立場</div>
-                    <div className="Record-tagLabel">支持勞工權益</div>
-                    <div className="Record-tagLabel">反對勞工權益</div>
-                    <div className="Record-tagLabel">不明</div>
+                    <div className="Record-tagLabel"><Icon icon={"circle-o"}/> 支持勞工權益</div>
+                    <div className="Record-tagLabel"><Icon icon={"remove"}/> 反對勞工權益</div>
+                    <div className="Record-tagLabel"><Icon icon={"question"}/>不明</div>
                 </div>
             </div>
         </div>
