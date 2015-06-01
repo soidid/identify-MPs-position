@@ -23,15 +23,6 @@ export default React.createClass({
    
   //   var top = this.refs.main.getDOMNode().offsetTop;
 
-  //   // 這裏有點神秘
-  //   var scheduleHeight = this.refs.schedule.getDOMNode().offsetHeight;
-  //   var filterHeight = this.refs.filter.getDOMNode().offsetHeight;
-  //   var height = scheduleHeight - window.innerHeight + filterHeight;
-  //   console.log(height)
-
-  //   _setScheduleHeight(height);
-  //   _setFilterHeight(filterHeight);
-  //   //
 
   //   addEventListener("scroll", function() {
   //       console.log("->"+pageYOffset)
