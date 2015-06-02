@@ -1,0 +1,57 @@
+:root {
+    --AppColor: rgb(234,94,91);
+    --AppTextColor: white;
+}
+
+.ListFilterPanel-tabs {
+	margin: 30px 0 0px 0;
+}
+.ListFilterPanel-tab {
+	display: inline-block;
+	color: var(--AppColor);
+    background: var(--AppTextColor);
+    border: 1px solid var(--AppColor);	
+    border-right: none;
+	padding: 6px 8px;
+	cursor: pointer;
+}
+.ListFilterPanel-tab.is-last {
+	border-right: 1px solid var(--AppColor);
+}
+.ListFilterPanel-tab.is-active {
+	color: var(--AppTextColor);
+    background: var(--AppColor);
+}
+
+.ListFilterPanel-filterPanel {
+	max-height: 0px;
+	overflow: hidden;
+	text-align: center;
+	background: #f3f3f3;
+	transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+	-webkit-transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+}
+.ListFilterPanel-filterPanel.is-show {
+    max-height: 500px;
+    transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+	-webkit-transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+}
+.ListFilterPanel-filterPanelVisible {
+	background: #f3f3f3;
+}
+.ListFilterPanel-toggleFilter {
+	color: rgb(180,180,180);
+    font-size: 14px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-align: right;
+}
+.ListFilterPanel-toggleFilter.is-active {
+	color: var(--AppColor);
+	transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+    webkit-transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+}
+.ListFilterPanel-selectItem {
+	margin: 20px;
+	text-align: left;
+}

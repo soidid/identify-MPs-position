@@ -11,7 +11,6 @@ export default React.createClass({
   getInitialState() {
     return {
       showIssueOptions: false,
-      showFilterPanel: false,
       currentIssue: "所有議題"
     };
   },
@@ -21,21 +20,21 @@ export default React.createClass({
         showIssueOptions: !this.state.showIssueOptions
       });
   },
-    _toggleFilterPanel() {
-      this.setState({
-        showFilterPanel: !this.state.showFilterPanel
-      });
-  },
+ 
   _setCurrentIssue(value) {
-      this.setState({
-        currentIssue: value,
-        showIssueOptions: false
-      });
+      if(value !== this.state.currentIssue){
+          window.scrollTo(500, 0);
+          console.log(pageYOffset);
+          this.setState({
+            currentIssue: value,
+            showIssueOptions: false
+          });
+      }
   },
 
   render() {
-    var { showIssueOptions, currentIssue, showFilterPanel } = this.state;
-    
+    var { showIssueOptions, currentIssue } = this.state;
+
     var issueOptionClasses = classNames({
         "AppBar-issueOptions" : true,
         "is-show" : showIssueOptions
@@ -43,13 +42,17 @@ export default React.createClass({
     var toggleIcon = (showIssueOptions) ? "angle-up" : "angle-down";
 
     var issue_options = ["所有議題","勞工權益","婚姻平權","監督條例","罷免下修","食安","兩稅合一","核能"]
-    var issueItems = issue_options.map((value,item)=>{
+    var issueItems = issue_options.map((value, k)=>{
         var classses = classNames({
           "AppBar-issueOptionItem" : true,
           "is-active" : currentIssue === value
         })
-        return <li className={classses} onClick={this._setCurrentIssue.bind(this,value)}>{value}</li>
+        return <li className={classses}
+                   key={k} 
+                   onClick={this._setCurrentIssue.bind(this,value)}>{value}</li>
     });
+
+  
 
     return (
       <div className="AppBar">
@@ -67,12 +70,9 @@ export default React.createClass({
               </ul>
           </div>
 
-          <div className="AppBar-item AppBar-right">
-              <Icon icon={"cog"}/>
-          </div>
+         
 
-          <div className="AppBar-filterPanel">
-          </div>
+         
           
       </div>);
   }

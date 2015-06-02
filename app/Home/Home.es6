@@ -11,7 +11,8 @@ export default React.createClass({
     return {
       inScheduleArea: "before",
       scheduleHeight: 0,
-      filterHeight: 0
+      filterHeight: 0,
+      showFilterPanel: false,
     };
   },
 
@@ -39,17 +40,27 @@ export default React.createClass({
   //   });
 
   // },
-
   
+  _toggleFilterPanel() {
+      this.setState({
+        showFilterPanel: !this.state.showFilterPanel
+      });
+  },
 
   render() {
-   
+    var { showIssueOptions, currentIssue, showFilterPanel } = this.state;
+    var filterPanelClasses = classNames({
+        "AppBar-filterPanel" : true,
+        "is-show" : showFilterPanel
+    });
     return (
       <div>
         <div className="Home-appBar">
-          <AppBar/>
+          <AppBar filterPanelHandler={this._toggleFilterPanel}/>
         </div>
+
         <div className="Home-content">
+          
           <RecordList/>
         </div>
       </div>

@@ -5,43 +5,52 @@ import moment from "moment";
 
 import Icon from "../Icon/Icon.es6";
 import Record from "../Record/Record.es6";
+import ListFilterPanel from "../ListFilterPanel/ListFilterPanel.es6";
 
 import Data from "./RecordList";
 import "./RecordList.css";
 
-function opinionToEng(value){
-    switch(value){
-              case '贊成':
-                  return "for";
-              case '反對':
-                  return "against";
-              case '不知所云':
-                  return "unclear";
-              case '不明確':
-                  return "none";
-    }
-    return "";
 
-          
-}
-export default class RecordList extends React.Component {
-  constructor(props) { super(props)
-      this.state = { 
-        currentTab: 'vote'
+export default React.createClass({
+  displayName: 'RecordList',
+
+  getInitialState(){
+      return { 
+        currentTab: 'vote',
+        currentParty: '所有政黨',
+        currentPosition: '所有立場',
+        showFilterPanel: false
       }
-  }
+  },
 
   _onSetTab(i, event){
     this.setState({
         currentTab: i
     });
+  },
 
-  }
+  _onToggleFilterPanel(){
+    this.setState({
+        showFilterPanel: !this.state.showFilterPanel
+    });
+  },
+
+  _onSetParty(value){
+    this.setState({
+        currentParty: value
+    });
+  },
+  
+  _onSetPosition(value){
+    this.setState({
+        currentPosition: value
+    });
+  },
 
   render() {
    
     var { opinion, subject } = this.props;
-    var { currentTab } = this.state;
+    var { currentTab, showFilterPanel, currentParty, currentPosition } = this.state;
    
     var data = Data.data;
     if(currentTab !== 'vote'){
@@ -63,28 +72,19 @@ export default class RecordList extends React.Component {
         )
     })
 
-    var tabs = [{title:"最多人標注",id:"vote"},{title:"最近更新",id:"timeline"},{title:"尚未標注",id:"none"}];
-    
-    var tabsItem = tabs.map((item,key)=>{
-        var tabClasses = classNames({
-            "RecordList-tab": true,
-            "is-active": currentTab === item.id,
-            "is-last": key === tabs.length-1
-        });
-        return (
-          <div className={tabClasses}
-               onClick={this._onSetTab.bind(this, item.id)}
-               key={key}>{item.title}</div>
-        )
-    });
-
-  
     
     return (
         <div className="RecordList">
           
           <div className="RecordList-content">
-              <div className="RecordList-tabs">{tabsItem}</div>
+              <ListFilterPanel currentTab={currentTab} 
+                               showFilterPanel={showFilterPanel}
+                               tabHandler={this._onSetTab}
+                               filterHandler={this._onToggleFilterPanel}
+                               partyHandler={this._onSetParty}
+                               positionHandler={this._onSetPosition}
+                               currentParty={currentParty}
+                               currentPosition={currentPosition}/>
               {content}
           </div>
 
@@ -100,7 +100,7 @@ export default class RecordList extends React.Component {
    
 
   }
-}
+});
 
 
 

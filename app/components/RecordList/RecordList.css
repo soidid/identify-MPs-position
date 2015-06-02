@@ -62,25 +62,6 @@
 	}
 }
 
-.RecordList-tabs {
-	margin: 30px 0 20px 0;
-}
-.RecordList-tab {
-	display: inline-block;
-	color: var(--AppColor);
-    background: var(--AppTextColor);
-    border: 1px solid var(--AppColor);	
-    border-right: none;
-	padding: 6px 8px;
-	cursor: pointer;
-}
-.RecordList-tab.is-last {
-	border-right: 1px solid var(--AppColor);
-}
-.RecordList-tab.is-active {
-	color: var(--AppTextColor);
-    background: var(--AppColor);
-}
 .RecordList-btn {
 	padding: 10px 20px;
 	border: 1px solid rgb(153,155,154);
