@@ -31,8 +31,7 @@
     right: -100%;
     position: absolute;
 	z-index: 500;
-	-webkit-transition: .2s;
-    transition: .2s;
+	
 }
 .Home-rightPage.is-show {
 	top: 0px;

@@ -48,7 +48,7 @@ export default React.createClass({
 
     }
 
-    
+
   },
 
  
@@ -91,6 +91,9 @@ export default React.createClass({
   }
 });
 
+// <div className="Home-appBar">
+//               <AppBar filterPanelHandler={this._toggleFilterPanel}/>
+//             </div>
  // componentDidMount(){
    
   //   var { inScheduleArea } = this.state;
