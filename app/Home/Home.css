@@ -18,19 +18,24 @@
     margin-top: 80px;
 }
 .Home-rightPage {
-	position: absolute;
-	top: 0;
-	right: -100%;
+	overflow: scroll;
+    height: 100%;
+    width: 0px;
+    top:0px;
+    right: -100%;
+    position: absolute;
+	z-index: 500;
+	-webkit-transition: .2s;
+    transition: .2s;
 }
 .Home-rightPage.is-show {
+	top: 0px;
+	min-height: 100vh;
 	background: pink;
-	height: 100vh;
-	width: 100%;
-	
-	top: 0;
-	right: 0;
-	z-index: 200;
-
-	transition: right .2s ease-in-out;
-    webkit-transition: right .2s ease-in-out
+    height: auto;
+    right: 0px;
+    width: 100%;
+  
+    -webkit-transition: right .2s ease-in-out;
+    transition: right .2s ease-in-out;
 }
