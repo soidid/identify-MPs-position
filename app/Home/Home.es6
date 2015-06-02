@@ -75,6 +75,9 @@ export default React.createClass({
 
         <div className={mainClasses}>
             
+            <div className="Home-appBar">
+              <AppBar filterPanelHandler={this._toggleFilterPanel}/>
+            </div>
             <div className="Home-content">
               <RecordList showSingleRecordHandler={this._toggleRightPage}/>
             </div>
@@ -91,9 +94,6 @@ export default React.createClass({
   }
 });
 
-// <div className="Home-appBar">
-//               <AppBar filterPanelHandler={this._toggleFilterPanel}/>
-//             </div>
  // componentDidMount(){
    
   //   var { inScheduleArea } = this.state;

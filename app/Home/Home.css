@@ -25,21 +25,27 @@
 }
 .Home-rightPage {
 	overflow: scroll;
-    height: 100%;
-    width: 0px;
+
+    
+    background: pink;
+
+    z-index: 500;
     top:0px;
     right: -100%;
     position: absolute;
-	z-index: 500;
-	
+   
+	width: 100%;
+	height: 0;
+
+    -webkit-transition: right .2s ease-in;
+    transition: right .2s ease-in;	
 }
 .Home-rightPage.is-show {
 	top: 0px;
-	min-height: 100vh;
-	background: pink;
-    height: auto;
     right: 0px;
     width: 100%;
+    min-height: 100vh;
+    height: auto;
   
     -webkit-transition: right .2s ease-in-out;
     transition: right .2s ease-in-out;
