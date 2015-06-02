@@ -10,14 +10,45 @@ export default React.createClass({
 
   getInitialState () {
     return {
-      showRighPage: false
+      showRighPage: false,
+      currentScrollHeight: 0
     };
   },
 
   _toggleRightPage(){
+    
+
     this.setState({
       showRighPage: !this.state.showRighPage
     })
+    if(!this.state.showRighPage){
+      console.log("Saving:" + pageYOffset);
+      this.setState({
+        currentScrollHeight: pageYOffset - 20
+      })
+
+    }
+    //else{
+    //   console.log("Recovering:"+this.state.currentScrollHeight);
+
+    //   //window.scrollTo(this.state.currentScrollHeight, 0);
+    //   window.scrollTo(100,500);
+    // }
+    window.scrollTo(0,500);
+  },
+  componentDidUpdate(){
+    console.log("did update")
+    var {currentScrollHeight, showRighPage} = this.state;
+    if(currentScrollHeight!==0 && showRighPage === false){
+       console.log("NOT zero")
+       window.scrollTo(0, currentScrollHeight);
+       this.setState({
+        currentScrollHeight: 0
+      })
+
+    }
+
+    
   },
 
  
@@ -30,8 +61,8 @@ export default React.createClass({
   render() {
     var { showRighPage } = this.state;
 
-    var homeClasses = classNames({
-        "Home" : true,
+    var mainClasses = classNames({
+        "Home-main" : true,
         "is-hide" : showRighPage
     })
    
@@ -40,9 +71,9 @@ export default React.createClass({
         "is-show" : showRighPage
     })
     return (
-      <div className={homeClasses}>
+      <div className="Home">
 
-        <div className="Home-main">
+        <div className={mainClasses}>
             <div className="Home-appBar">
               <AppBar filterPanelHandler={this._toggleFilterPanel}/>
             </div>

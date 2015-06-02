@@ -1,9 +1,15 @@
 .Home {
-    height: 100vh;
-    overflow: scroll;
+    
 
 }
-.Home.is-hide {
+.Home-main {
+    height: auto;
+}
+.Home-main.is-hide {
+	transform: translate3d(-100%,0,0);
+	height: 100vh;
+	overflow: hidden;
+	transition: position .2s ease-in-out;
 	
 }
 .Home-appBar {
