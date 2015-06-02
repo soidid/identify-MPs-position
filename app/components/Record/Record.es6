@@ -26,7 +26,7 @@ export default class Record extends React.Component {
 
   render() {
    
-    var {data, subject, index} = this.props;
+    var {data, subject, index, showSingleRecordHandler} = this.props;
     var {showTooltip} = this.state;
    
     var opinionClasses = classNames({
@@ -86,7 +86,8 @@ export default class Record extends React.Component {
                 <div className="Record-meta">／{data.type}</div>
                 <div className="Reocrd-date">{data.date}</div>
             </div>
-            <div className="Record-quote">
+            <div className="Record-quote"
+                 onClick={showSingleRecordHandler}>
                {data.quote}
             </div>
              <div className="Record-editedBy">

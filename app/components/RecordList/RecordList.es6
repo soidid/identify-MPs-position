@@ -49,7 +49,7 @@ export default React.createClass({
 
   render() {
    
-    var { opinion, subject } = this.props;
+    var { opinion, subject, showSingleRecordHandler } = this.props;
     var { currentTab, showFilterPanel, currentParty, currentPosition } = this.state;
    
     var data = Data.data;
@@ -67,7 +67,7 @@ export default React.createClass({
     var content = data.map((item,key)=>{
         return (
             <div key={key}>
-              <Record data={item} subject={subject} index={key}/>
+              <Record data={item} subject={subject} index={key} showSingleRecordHandler={showSingleRecordHandler}/>
             </div>
         )
     })
