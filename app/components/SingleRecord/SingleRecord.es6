@@ -18,8 +18,8 @@ export default React.createClass({
     var {showSingleRecordHandler} = this.props;
     return (
       <div className="SingleRecord">
-           SingleRecord
-           <button onClick={showSingleRecordHandler}>close</button>
+          
+          <button onClick={showSingleRecordHandler}>close</button>
           
       </div>);
   }

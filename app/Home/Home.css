@@ -25,10 +25,7 @@
 }
 .Home-rightPage {
 	overflow: scroll;
-
-    
     background: pink;
-
     z-index: 500;
     top:0px;
     right: -100%;

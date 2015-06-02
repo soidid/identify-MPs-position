@@ -17,38 +17,30 @@ export default React.createClass({
 
   _toggleRightPage(){
     
-
     this.setState({
       showRighPage: !this.state.showRighPage
     })
+
+    //Saving current scrolling position
     if(!this.state.showRighPage){
-      console.log("Saving:" + pageYOffset);
+      //console.log("Saving:" + pageYOffset);
       this.setState({
-        currentScrollHeight: pageYOffset - 20
+        currentScrollHeight: pageYOffset
       })
-
+      window.scrollTo(0, 0);
     }
-    //else{
-    //   console.log("Recovering:"+this.state.currentScrollHeight);
-
-    //   //window.scrollTo(this.state.currentScrollHeight, 0);
-    //   window.scrollTo(100,500);
-    // }
-    window.scrollTo(0,500);
+  
+    
   },
   componentDidUpdate(){
-    console.log("did update")
+    //如果是從 single right page 退出回到主頁，要 scroll 到原本離開的位置
     var {currentScrollHeight, showRighPage} = this.state;
-    if(currentScrollHeight!==0 && showRighPage === false){
-       console.log("NOT zero")
-       window.scrollTo(0, currentScrollHeight);
-       this.setState({
-        currentScrollHeight: 0
-      })
-
+    if(currentScrollHeight!==0 && showRighPage === false){ 
+        window.scrollTo(0, currentScrollHeight);
+        this.setState({
+          currentScrollHeight: 0
+        })
     }
-
-
   },
 
  
