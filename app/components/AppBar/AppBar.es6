@@ -47,9 +47,9 @@ export default React.createClass({
           "AppBar-issueOptionItem" : true,
           "is-active" : currentIssue === value
         })
-        return <li className={classses}
+        return <div className={classses}
                    key={k} 
-                   onClick={this._setCurrentIssue.bind(this,value)}>{value}</li>
+                   onClick={this._setCurrentIssue.bind(this,value)}>{value}</div>
     });
 
   
@@ -65,9 +65,8 @@ export default React.createClass({
                <Icon icon={toggleIcon}/></div>
           
           <div className={issueOptionClasses}>
-              <ul className="AppBar-issueOptionItems">
-                {issueItems}
-              </ul>
+              {issueItems}
+             
           </div>
 
          

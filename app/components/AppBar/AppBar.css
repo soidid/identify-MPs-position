@@ -22,21 +22,19 @@
 	transition: all .2s cubic-bezier(0, 1, 0.5, 1);
 	-webkit-transition: all .2s cubic-bezier(0, 1, 0.5, 1);
 }
-ul.AppBar-issueOptionItems {
-	padding: 0;
-	margin: 0;
-}
-li.AppBar-issueOptionItem {
+
+.AppBar-issueOptionItem {
 	list-style: none;
 	padding: 14px;
 	text-align: center;
 	padding-right: 16px;
+	cursor: pointer;
 }
-li.AppBar-issueOptionItem:hover {
+.AppBar-issueOptionItem:hover {
 	background: #f3f3f3;
 	cursor: pointer;
 }
-li.AppBar-issueOptionItem.is-active {
+.AppBar-issueOptionItem.is-active {
 	border-left: 8px solid var(--AppColor);
 	border-right: 8px solid transparent;
 	font-weight: 600;
