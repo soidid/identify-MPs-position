@@ -147,6 +147,7 @@ export default React.createClass({
             <div className="Home-appBar">
               <AppBar filterPanelHandler={this._toggleFilterPanel}
                       setIssueHandler={this._setCurrentIssue}
+                      showIssuePageHandler={this._toggleIssuePage}
                       currentIssue={currentIssue}/>
             </div>
             <div className="Home-content">
@@ -167,7 +168,8 @@ export default React.createClass({
 
         <div className={issuePageClasses}>
             <IssuePage showIssuePageHandler={this._toggleIssuePage}
-                       showNGOPageHandler={this._toggleNGOPage} />
+                       showNGOPageHandler={this._toggleNGOPage}
+                       currentIssue={currentIssue} />
         </div>
 
          <div className={NGOPageClasses}>

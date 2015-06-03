@@ -27,7 +27,7 @@ export default React.createClass({
 
   render() {
     var { showIssueOptions} = this.state;
-    var { setIssueHandler, currentIssue } = this.props
+    var { setIssueHandler, currentIssue, showIssuePageHandler } = this.props
 
     var issueOptionClasses = classNames({
         "AppBar-issueOptions" : true,
@@ -60,10 +60,14 @@ export default React.createClass({
           
           <div className={issueOptionClasses}>
               {issueItems}
-             
           </div>
 
-         
+          <div className="AppBar-right">
+              <div className="AppBar-item"
+                   onClick={showIssuePageHandler}>
+                  <Icon icon={"book"}/>
+              </div>
+          </div>
 
          
           

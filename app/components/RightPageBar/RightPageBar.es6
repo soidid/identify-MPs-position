@@ -10,13 +10,14 @@ export default React.createClass({
   
  
   render() {
-    var { clickHandler } = this.props;
+    var { clickHandler, title } = this.props;
     return (
       <div className="RightPageBar">
           <div className="RightPageBar-leftIcon"
                onClick={clickHandler}>
               <Icon icon={"chevron-left"}/>
           </div>
+          <div className="RightPageBar-title">{title}</div>
       </div>);
   }
 });

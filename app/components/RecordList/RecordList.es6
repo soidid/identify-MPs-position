@@ -78,8 +78,6 @@ export default React.createClass({
         <div className="RecordList">
           
           <div className="RecordList-content">
-              <div>關於{currentIssue}，你該知道的是...<button onClick={showIssuePageHandler}>read more</button></div>
-
               
               <ListFilterPanel currentTab={currentTab} 
                                showFilterPanel={showFilterPanel}
