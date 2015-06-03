@@ -67,9 +67,7 @@ export default React.createClass({
     var content = data.map((item,key)=>{
         return (
             <div key={key}>
-              <Record data={item} 
-                      subject={subject} 
-                      index={key} 
+              <Record data={item}
                       {...this.props}/>
             </div>
         )

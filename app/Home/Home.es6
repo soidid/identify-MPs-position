@@ -16,7 +16,8 @@ export default React.createClass({
       showIssuePage: false,
       showNGOPage: false,
       currentScrollHeight: 0,
-      currentIssue: "所有議題"
+      currentIssue: "所有議題",
+      currentRecord: null
     };
   },
 
@@ -31,18 +32,37 @@ export default React.createClass({
       }
   },
 
+  _setCurrentRecord(value) {
+      if(this.state.currentRecord !== value){
+          this.setState({
+            currentRecord: value
+          });
+          this._toggleSingleRecord();
+      } 
+  },
+
   _toggleSingleRecord(){
     this.setState({
       showSingleRecord: !this.state.showSingleRecord
     })
+    
+    //表示要從 show single record page 退出
+    if(this.state.showSingleRecord===true){
+      this.setState({
+         currentRecord: null
+      })
+    }
 
     //Saving current scrolling position
-    if(!this.state.showSingleRecord){
+    
+    if(this.state.currentScrollHeight===0){
+        console.log("Saving scrolling: "+ pageYOffset);
         this.setState({
           currentScrollHeight: pageYOffset
         })
-        window.scrollTo(0, 0);
+        
     }
+    window.scrollTo(0, 0);
   },
 
   _toggleIssuePage(){
@@ -51,12 +71,13 @@ export default React.createClass({
     })
 
     //Saving current scrolling position
-    if(!this.state.showIssuePage){
+    if(this.state.currentScrollHeight===0){
         this.setState({
           currentScrollHeight: pageYOffset
         })
-        window.scrollTo(0, 0);
+        
     }
+    window.scrollTo(0, 0);
   },
 
   _toggleNGOPage(){
@@ -65,21 +86,25 @@ export default React.createClass({
     })
 
     //Saving current scrolling position
-    if(!this.state.showNGOPage){
+    if(this.state.currentScrollHeight===0){
         this.setState({
           currentScrollHeight: pageYOffset
         })
-        window.scrollTo(0, 0);
+        
     }
+    window.scrollTo(0, 0);
   },
 
 
   componentDidUpdate(){
     //如果是從 single record page 或 issue page 退出回到主頁，要 scroll 到原本離開的位置
-    var {currentScrollHeight, showSingleRecorde, showIssuePage, showNGOPage} = this.state;
-    if((currentScrollHeight!==0 && showSingleRecord === false)||
-       (currentScrollHeight!==0 && showIssuePage === false) ||
-       (currentScrollHeight!==0 && showNGOPage === false)){ 
+
+    var {currentScrollHeight, showSingleRecord, showIssuePage, showNGOPage} = this.state;
+
+    console.log("component did upate, scrolling height:"+currentScrollHeight);
+
+    if((currentScrollHeight!==0 && showSingleRecord === false && showIssuePage === false && showNGOPage === false)){ 
+        console.log("reload scroll position");
         window.scrollTo(0, currentScrollHeight);
         this.setState({
           currentScrollHeight: 0
@@ -95,7 +120,7 @@ export default React.createClass({
   },
 
   render() {
-    var { currentIssue, showSingleRecord, showIssuePage, showNGOPage } = this.state;
+    var { currentIssue, showSingleRecord, showIssuePage, showNGOPage, currentRecord } = this.state;
 
     var mainClasses = classNames({
         "Home-main" : true,
@@ -128,13 +153,16 @@ export default React.createClass({
               <RecordList showSingleRecordHandler={this._toggleSingleRecord}
                           showIssuePageHandler={this._toggleIssuePage}
                           showNGOPageHandler={this._toggleNGOPage}
-                          currentIssue={currentIssue}/>
+                          currentIssue={currentIssue}
+                          setCurrentRecordHandler={this._setCurrentRecord}/>
             </div>
         </div>
 
         <div className={singleRecordClasses}>
             <SingleRecord showSingleRecordHandler={this._toggleSingleRecord}
-                          showNGOPageHandler={this._toggleNGOPage} />
+                          showNGOPageHandler={this._toggleNGOPage}
+                          currentRecord={currentRecord}
+                          setCurrentRecordHandler={this._setCurrentRecord} />
         </div>
 
         <div className={issuePageClasses}>

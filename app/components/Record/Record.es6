@@ -26,7 +26,7 @@ export default class Record extends React.Component {
 
   render() {
    
-    var {data, subject, index, showSingleRecordHandler, showNGOPageHandler} = this.props;
+    var {data, showSingleRecordHandler, showNGOPageHandler, setCurrentRecordHandler} = this.props;
     var {showTooltip} = this.state;
    
     var opinionClasses = classNames({
@@ -72,7 +72,7 @@ export default class Record extends React.Component {
         </div>
     );
 
-  
+    
     return (
         <div className="Record">
             <div className="Record-topRight" onClick={this._onToggleShowTooltip.bind(this, null)}>
@@ -87,7 +87,7 @@ export default class Record extends React.Component {
                 <div className="Reocrd-date">{data.date}</div>
             </div>
             <div className="Record-quote"
-                 onClick={showSingleRecordHandler}>
+                 onClick={setCurrentRecordHandler.bind(null, data.id)}>
                {data.quote}
             </div>
              <div className="Record-editedBy">
