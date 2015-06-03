@@ -89,7 +89,8 @@ export default React.createClass({
         <div className="ListFilterPanel">
           <div className="ListFilterPanel-tabs">{tabsItem}</div>
           <div className={filterToggleClasses}
-               onClick={filterHandler}><Icon icon={"cog"}/>進階搜尋</div>
+               onClick={filterHandler}><Icon icon={"cog"}/>
+               <span className="ListFilterPanel-text">進階搜尋</span></div>
           <div className={filterPanelClasses}>
             
               <Select options={parties}
