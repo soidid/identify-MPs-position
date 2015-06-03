@@ -1,5 +1,7 @@
 import React from "react";
 import classNames from "classnames";
+
+import RightPageBar from "../RightPageBar/RightPageBar.es6";
 import Icon from "../Icon/Icon.es6";
 import "./IssuePage.css";
 
@@ -18,12 +20,8 @@ export default React.createClass({
     var {showIssuePageHandler, showNGOPageHandler} = this.props;
     return (
       <div className="IssuePage">
-          
-          <button onClick={showIssuePageHandler}>close</button>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+          <RightPageBar clickHandler={showIssuePageHandler}/>
+          ISSUE PAGE
           <button onClick={showNGOPageHandler}>NGO 簡介</button>
       </div>);
   }

@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
+import RightPageBar from "../RightPageBar/RightPageBar.es6";
 import Icon from "../Icon/Icon.es6";
 import Record from "../Record/Record.es6";
 
@@ -25,16 +26,9 @@ export default React.createClass({
     var record = (data !== undefined)? <Record data={data} {...this.props}/>: "";
     return (
       <div className="SingleRecord">
-          
-          <button onClick={showSingleRecordHandler}>close</button>
-          <br/>
-          <br/>
-          目前 record id: {currentRecord}
+          <RightPageBar clickHandler={showSingleRecordHandler}/>
           {record}
 
-          <br/>
-          <br/>
-          <button onClick={showNGOPageHandler}>NGO 簡介</button>
           
       </div>);
   }
