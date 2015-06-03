@@ -3,6 +3,7 @@ import classNames from "classnames";
 import AppBar from "../components/AppBar/AppBar.es6";
 import RecordList from "../components/RecordList/RecordList.es6";
 import SingleRecord from "../components/SingleRecord/SingleRecord.es6";
+import IssuePage from "../components/IssuePage/IssuePage.es6";
 
 import "./Home.css";
 export default React.createClass({
@@ -10,32 +11,58 @@ export default React.createClass({
 
   getInitialState () {
     return {
-      showRighPage: false,
-      currentScrollHeight: 0
+      showSingleRecord: false,
+      showIssuePage: false,
+      currentScrollHeight: 0,
+      currentIssue: "所有議題"
     };
   },
 
-  _toggleRightPage(){
-    
+  _setCurrentIssue(value) {
+      if(value !== this.state.currentIssue){
+          window.scrollTo(500, 0);
+          console.log(pageYOffset);
+          this.setState({
+            currentIssue: value,
+            showIssueOptions: false
+          });
+      }
+  },
+
+  _toggleSingleRecord(){
     this.setState({
-      showRighPage: !this.state.showRighPage
+      showSingleRecord: !this.state.showSingleRecord
     })
 
     //Saving current scrolling position
-    if(!this.state.showRighPage){
-      //console.log("Saving:" + pageYOffset);
-      this.setState({
-        currentScrollHeight: pageYOffset
-      })
-      window.scrollTo(0, 0);
+    if(!this.state.showSingleRecord){
+        this.setState({
+          currentScrollHeight: pageYOffset
+        })
+        window.scrollTo(0, 0);
     }
-  
-    
   },
+
+  _toggleIssuePage(){
+    this.setState({
+      showIssuePage: !this.state.showIssuePage
+    })
+
+    //Saving current scrolling position
+    if(!this.state.showIssuePage){
+        this.setState({
+          currentScrollHeight: pageYOffset
+        })
+        window.scrollTo(0, 0);
+    }
+  },
+
+
   componentDidUpdate(){
-    //如果是從 single right page 退出回到主頁，要 scroll 到原本離開的位置
-    var {currentScrollHeight, showRighPage} = this.state;
-    if(currentScrollHeight!==0 && showRighPage === false){ 
+    //如果是從 single record page 或 issue page 退出回到主頁，要 scroll 到原本離開的位置
+    var {currentScrollHeight, showSingleRecorde} = this.state;
+    if((currentScrollHeight!==0 && showSingleRecord === false)||
+       (currentScrollHeight!==0 && showIssuePage === false)){ 
         window.scrollTo(0, currentScrollHeight);
         this.setState({
           currentScrollHeight: 0
@@ -51,16 +78,20 @@ export default React.createClass({
   },
 
   render() {
-    var { showRighPage } = this.state;
+    var { showSingleRecord, showIssuePage, currentIssue } = this.state;
 
     var mainClasses = classNames({
         "Home-main" : true,
-        "is-hide" : showRighPage
+        "is-hide" : showSingleRecord || showIssuePage
     })
    
-    var rightPageClasses = classNames({
+    var singleRecordClasses = classNames({
         "Home-rightPage" : true,
-        "is-show" : showRighPage
+        "is-show" : showSingleRecord
+    })
+    var issuePageClasses = classNames({
+        "Home-rightPage" : true,
+        "is-show" : showIssuePage
     })
     return (
       <div className="Home">
@@ -68,15 +99,22 @@ export default React.createClass({
         <div className={mainClasses}>
             
             <div className="Home-appBar">
-              <AppBar filterPanelHandler={this._toggleFilterPanel}/>
+              <AppBar filterPanelHandler={this._toggleFilterPanel}
+                      setIssueHandler={this._setCurrentIssue}
+                      currentIssue={currentIssue}/>
             </div>
             <div className="Home-content">
-              <RecordList showSingleRecordHandler={this._toggleRightPage}/>
+              <RecordList showSingleRecordHandler={this._toggleSingleRecord}
+                          showIssuePageHandler={this._toggleIssuePage}
+                          currentIssue={currentIssue}/>
             </div>
         </div>
 
-        <div className={rightPageClasses}>
-             <SingleRecord showSingleRecordHandler={this._toggleRightPage} />
+        <div className={singleRecordClasses}>
+            <SingleRecord showSingleRecordHandler={this._toggleSingleRecord} />
+        </div>
+        <div className={issuePageClasses}>
+            <IssuePage showIssuePageHandler={this._toggleIssuePage} />
         </div>
 
 

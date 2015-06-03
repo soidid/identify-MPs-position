@@ -49,7 +49,7 @@ export default React.createClass({
 
   render() {
    
-    var { opinion, subject, showSingleRecordHandler } = this.props;
+    var { opinion, subject, showSingleRecordHandler, showIssuePageHandler, currentIssue } = this.props;
     var { currentTab, showFilterPanel, currentParty, currentPosition } = this.state;
    
     var data = Data.data;
@@ -77,6 +77,9 @@ export default React.createClass({
         <div className="RecordList">
           
           <div className="RecordList-content">
+              <div>關於{currentIssue}，你該知道的是...<button onClick={showIssuePageHandler}>read more</button></div>
+
+              
               <ListFilterPanel currentTab={currentTab} 
                                showFilterPanel={showFilterPanel}
                                tabHandler={this._onSetTab}

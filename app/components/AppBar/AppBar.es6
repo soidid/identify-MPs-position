@@ -10,8 +10,7 @@ export default React.createClass({
   
   getInitialState() {
     return {
-      showIssueOptions: false,
-      currentIssue: "所有議題"
+      showIssueOptions: false
     };
   },
 
@@ -20,20 +19,15 @@ export default React.createClass({
         showIssueOptions: !this.state.showIssueOptions
       });
   },
- 
-  _setCurrentIssue(value) {
-      if(value !== this.state.currentIssue){
-          window.scrollTo(500, 0);
-          console.log(pageYOffset);
-          this.setState({
-            currentIssue: value,
-            showIssueOptions: false
-          });
-      }
+  _setIssue(value){
+      this.props.setIssueHandler(value);
+      this._toggleIssueOptions();
   },
+  
 
   render() {
-    var { showIssueOptions, currentIssue } = this.state;
+    var { showIssueOptions} = this.state;
+    var { setIssueHandler, currentIssue } = this.props
 
     var issueOptionClasses = classNames({
         "AppBar-issueOptions" : true,
@@ -49,7 +43,7 @@ export default React.createClass({
         })
         return <div className={classses}
                    key={k} 
-                   onClick={this._setCurrentIssue.bind(this,value)}>{value}</div>
+                   onClick={this._setIssue.bind(null,value)}>{value}</div>
     });
 
   
