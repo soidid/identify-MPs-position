@@ -67,7 +67,10 @@ export default React.createClass({
     var content = data.map((item,key)=>{
         return (
             <div key={key}>
-              <Record data={item} subject={subject} index={key} showSingleRecordHandler={showSingleRecordHandler}/>
+              <Record data={item} 
+                      subject={subject} 
+                      index={key} 
+                      {...this.props}/>
             </div>
         )
     })

@@ -4,6 +4,7 @@ import AppBar from "../components/AppBar/AppBar.es6";
 import RecordList from "../components/RecordList/RecordList.es6";
 import SingleRecord from "../components/SingleRecord/SingleRecord.es6";
 import IssuePage from "../components/IssuePage/IssuePage.es6";
+import NGOPage from "../components/NGOPage/NGOPage.es6";
 
 import "./Home.css";
 export default React.createClass({
@@ -13,6 +14,7 @@ export default React.createClass({
     return {
       showSingleRecord: false,
       showIssuePage: false,
+      showNGOPage: false,
       currentScrollHeight: 0,
       currentIssue: "所有議題"
     };
@@ -57,12 +59,27 @@ export default React.createClass({
     }
   },
 
+  _toggleNGOPage(){
+    this.setState({
+      showNGOPage: !this.state.showNGOPage
+    })
+
+    //Saving current scrolling position
+    if(!this.state.showNGOPage){
+        this.setState({
+          currentScrollHeight: pageYOffset
+        })
+        window.scrollTo(0, 0);
+    }
+  },
+
 
   componentDidUpdate(){
     //如果是從 single record page 或 issue page 退出回到主頁，要 scroll 到原本離開的位置
-    var {currentScrollHeight, showSingleRecorde} = this.state;
+    var {currentScrollHeight, showSingleRecorde, showIssuePage, showNGOPage} = this.state;
     if((currentScrollHeight!==0 && showSingleRecord === false)||
-       (currentScrollHeight!==0 && showIssuePage === false)){ 
+       (currentScrollHeight!==0 && showIssuePage === false) ||
+       (currentScrollHeight!==0 && showNGOPage === false)){ 
         window.scrollTo(0, currentScrollHeight);
         this.setState({
           currentScrollHeight: 0
@@ -78,7 +95,7 @@ export default React.createClass({
   },
 
   render() {
-    var { showSingleRecord, showIssuePage, currentIssue } = this.state;
+    var { currentIssue, showSingleRecord, showIssuePage, showNGOPage } = this.state;
 
     var mainClasses = classNames({
         "Home-main" : true,
@@ -93,6 +110,10 @@ export default React.createClass({
         "Home-rightPage" : true,
         "is-show" : showIssuePage
     })
+     var NGOPageClasses = classNames({
+        "Home-rightPage" : true,
+        "is-show" : showNGOPage
+    })
     return (
       <div className="Home">
 
@@ -106,15 +127,23 @@ export default React.createClass({
             <div className="Home-content">
               <RecordList showSingleRecordHandler={this._toggleSingleRecord}
                           showIssuePageHandler={this._toggleIssuePage}
+                          showNGOPageHandler={this._toggleNGOPage}
                           currentIssue={currentIssue}/>
             </div>
         </div>
 
         <div className={singleRecordClasses}>
-            <SingleRecord showSingleRecordHandler={this._toggleSingleRecord} />
+            <SingleRecord showSingleRecordHandler={this._toggleSingleRecord}
+                          showNGOPageHandler={this._toggleNGOPage} />
         </div>
+
         <div className={issuePageClasses}>
-            <IssuePage showIssuePageHandler={this._toggleIssuePage} />
+            <IssuePage showIssuePageHandler={this._toggleIssuePage}
+                       showNGOPageHandler={this._toggleNGOPage} />
+        </div>
+
+         <div className={NGOPageClasses}>
+            <NGOPage showNGOPageHandler={this._toggleNGOPage} />
         </div>
 
 

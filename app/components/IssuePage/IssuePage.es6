@@ -15,12 +15,16 @@ export default React.createClass({
 
   
   render() {
-    var {showIssuePageHandler} = this.props;
+    var {showIssuePageHandler, showNGOPageHandler} = this.props;
     return (
       <div className="IssuePage">
           
           <button onClick={showIssuePageHandler}>close</button>
-          
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <button onClick={showNGOPageHandler}>NGO 簡介</button>
       </div>);
   }
 });

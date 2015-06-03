@@ -15,11 +15,16 @@ export default React.createClass({
 
   
   render() {
-    var {showSingleRecordHandler} = this.props;
+    var {showSingleRecordHandler, showNGOPageHandler} = this.props;
     return (
       <div className="SingleRecord">
           
           <button onClick={showSingleRecordHandler}>close</button>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <button onClick={showNGOPageHandler}>NGO 簡介</button>
           
       </div>);
   }

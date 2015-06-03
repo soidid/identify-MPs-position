@@ -26,7 +26,7 @@ export default class Record extends React.Component {
 
   render() {
    
-    var {data, subject, index, showSingleRecordHandler} = this.props;
+    var {data, subject, index, showSingleRecordHandler, showNGOPageHandler} = this.props;
     var {showTooltip} = this.state;
    
     var opinionClasses = classNames({
@@ -91,7 +91,8 @@ export default class Record extends React.Component {
                {data.quote}
             </div>
              <div className="Record-editedBy">
-                －由 <Link className="Record-link" to="app">勞工陣線</Link> 摘錄
+                －由 <span className="Record-link"
+                           onClick={showNGOPageHandler}>勞工陣線</span> 摘錄
             </div>
             {actionItem}
         </div>
