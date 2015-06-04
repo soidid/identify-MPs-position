@@ -1,9 +1,11 @@
 .Home {
-    
+    width: 100vw;
+    overflow: hidden;    
 
 }
 .Home-main {
     height: auto;
+    width: 100vw;
 }
 .Home-main.is-hide {
 	/* transform: translate3d(-100%,0,0);
@@ -22,7 +24,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     z-index: 100;
     box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.12);
 }
@@ -31,7 +33,7 @@
 }
 .Home-rightPage {
 	overflow: scroll;
-    z-index: 500;
+    z-index: 400;
     top:0px;
     right: -100%;
     position: absolute;
@@ -41,7 +43,8 @@
     background: white;
 
     -webkit-transition: right .2s ease-in;
-    transition: right .2s ease-in;	
+    transition: right .2s ease-in;
+    will-change: right, height;
 }
 .Home-rightPage.is-show {
 	top: 0px;
@@ -50,9 +53,10 @@
     overflow: hidden;
     min-height: 100vh;
     height: auto;
-   
+    
     -webkit-transition: right .2s ease-in-out;
     transition: right .2s ease-in-out;
+    will-change: right, height;
 }
 
 .Home-leftPage {
@@ -61,12 +65,11 @@
     top:0px;
     left: -100%;
     position: fixed;
-   
     width: 100%;
-    height: 0;
-
+    z-index: 200;
     -webkit-transition: left .2s ease-in;
-    transition: left .2s ease-in;  
+    transition: left .2s ease-in; 
+    will-change: left; 
 }
 .Home-leftPage.is-show {
     top: 0px;
@@ -76,9 +79,10 @@
     overflow: hidden;
     min-height: 100vh;
     height: auto;
-
+   
     -webkit-transition: left .2s ease-in-out;
     transition: left .2s ease-in-out;
+    will-change: left;
 
 }
 .Home-blackLayer {
@@ -96,5 +100,30 @@
     .Home-blackLayer.is-show {
         display: none;
     }
+
+}
+.Home-bottomPage {
+    overflow: scroll;
+    z-index: 300;
+    top: 100%;
+    position: fixed;
+    width: 100%;
+
+    
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out; 
+    will-change: top;
+}
+.Home-bottomPage.is-show {
+    top: 0px;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    min-height: 100vh;
+    height: auto;
+
+    -webkit-transition: top .2s ease-in-out;
+    transition: top .2s ease-in-out;
+    will-change: top;
 
 }

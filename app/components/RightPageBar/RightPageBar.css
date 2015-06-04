@@ -5,6 +5,7 @@
 .RightPageBar {
 	background: var(--LexiconColor);
     height: 40px;
+
     color: var(--LexiconTextColor);
 }
 .RightPageBar-leftIcon {
@@ -27,6 +28,6 @@
   	top: 0;
   	padding-top: 12px;
   	font-weight: 600;
-  	left: calc(50% - 40px);
+  	left: calc(50vw - 40px);
   	color: var(--AppTextColor);
 }

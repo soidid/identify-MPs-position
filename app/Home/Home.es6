@@ -9,6 +9,7 @@ import IssuePage from "../components/IssuePage/IssuePage.es6";
 import NGOPage from "../components/NGOPage/NGOPage.es6";
 
 import UserPage from "../components/UserPage/UserPage.es6";
+import HistoryPage from "../components/HistoryPage/HistoryPage.es6";
 
 import "./Home.css";
 export default React.createClass({
@@ -21,6 +22,7 @@ export default React.createClass({
       showIssuePage: false,
       showNGOPage: false,
       showUserPage: false,
+      showHistoryPage: false,
       currentScrollHeight: 0,
       currentIssue: "所有議題",
       currentRecord: null
@@ -133,6 +135,14 @@ export default React.createClass({
     window.scrollTo(0, 0);
   },
 
+  _toggleHistoryPage(){
+    this.setState({
+      showHistoryPage: !this.state.showHistoryPage
+    })
+
+  },
+
+
 
   componentDidUpdate(){
     //如果是從 single record page 或 issue page 退出回到主頁，要 scroll 到原本離開的位置
@@ -176,9 +186,9 @@ export default React.createClass({
   },
 
   render() {
-    var { currentIssue, showSingleRecord, showIssueListPage, showIssuePage, showNGOPage, currentRecord, showUserPage, currentScrollHeight } = this.state;
+    var { currentIssue, showSingleRecord, showIssueListPage, showIssuePage, showNGOPage, currentRecord, showUserPage, currentScrollHeight, showHistoryPage } = this.state;
 
-    var shouldHide = showSingleRecord || showIssuePage || showIssueListPage || showNGOPage || showUserPage;
+    var shouldHide = showSingleRecord || showIssuePage || showIssueListPage || showNGOPage || showUserPage || showHistoryPage;
     var mainClasses = classNames({
         "Home-main" : true,
         "is-hide" : shouldHide
@@ -211,6 +221,10 @@ export default React.createClass({
     var blackLayerClasses = classNames({
         "Home-blackLayer" : true,
         "is-show" : showUserPage
+    })
+    var HistoryPageClasses = classNames({
+        "Home-bottomPage" : true,
+        "is-show" : showHistoryPage
     })
     return (
       <div className="Home">
@@ -262,9 +276,16 @@ export default React.createClass({
         
         <div className={blackLayerClasses}
              onClick={this._toggleUserPage}></div>
+        
         <div className={UserPageClasses}>
+            <UserPage showUserPageHandler={this._toggleUserPage}
+                      showHistoryPageHandler={this._toggleHistoryPage}/>
+        </div>
 
-            <UserPage showUserPageHandler={this._toggleUserPage}/>
+        <div className={HistoryPageClasses}>
+            <HistoryPage showHistoryPageHandler={this._toggleHistoryPage}
+                         showUserPageHandler={this._toggleUserPage}
+                         setCurrentRecordHandler={this._setCurrentRecord}/>
         </div>
 
 
