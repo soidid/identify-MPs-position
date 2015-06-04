@@ -33,7 +33,8 @@ module.exports = {
     require("postcss-color-function")()
   ],
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
   ],
   resolve: {
     extensions: ["", ".web.js", ".js", ".jsx", ".es6"]
