@@ -27,7 +27,7 @@ export default React.createClass({
 
   render() {
     var { showIssueOptions} = this.state;
-    var { setIssueHandler, currentIssue, showIssueListPageHandler } = this.props
+    var { setIssueHandler, currentIssue, showIssueListPageHandler, showUserPageHandler } = this.props
 
     var issueOptionClasses = classNames({
         "AppBar-issueOptions" : true,
@@ -50,7 +50,8 @@ export default React.createClass({
 
     return (
       <div className="AppBar">
-          <div className="AppBar-item">
+          <div className="AppBar-item"
+               onClick={showUserPageHandler}>
                <Icon icon={"user"}/>
           </div>
           <div className="AppBar-title" 

@@ -6,11 +6,10 @@
     height: auto;
 }
 .Home-main.is-hide {
-	transform: translate3d(-100%,0,0);
-	height: 100vh;
-	overflow: hidden;
+	/* transform: translate3d(-100%,0,0);
+	overflow: hidden;*/
 	transition: position .2s ease-in-out;
-	
+	position: fixed;
 }
 .Home-appBar {
     position: fixed;
@@ -32,6 +31,7 @@
    
 	width: 100%;
 	height: 0;
+    background: white;
 
     -webkit-transition: right .2s ease-in;
     transition: right .2s ease-in;	
@@ -43,7 +43,46 @@
     overflow: hidden;
     min-height: 100vh;
     height: auto;
+    position: fixed;
   
     -webkit-transition: right .2s ease-in-out;
     transition: right .2s ease-in-out;
+}
+
+.Home-leftPage {
+    overflow: scroll;
+    z-index: 500;
+    top:0px;
+    left: -100%;
+    position: fixed;
+   
+    width: 100%;
+    height: 0;
+
+    -webkit-transition: left .2s ease-in;
+    transition: left .2s ease-in;  
+}
+.Home-leftPage.is-show {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    overflow: hidden;
+    min-height: 100vh;
+    height: auto;
+
+    -webkit-transition: left .2s ease-in-out;
+    transition: left .2s ease-in-out;
+
+}
+.Home-blackLayer {
+
+}
+.Home-blackLayer.is-show {
+    position: fixed;
+    background: rgba(0,0,0,0.2);
+    width: 100%;
+    min-height: 100vh;
+    z-index: 110;
+    transition: background .25s ease-in-out;
+    
 }
