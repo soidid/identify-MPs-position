@@ -168,20 +168,20 @@ export default React.createClass({
       });
   },
   componentDidMount(){
-    document.ontouchmove = function(event) {
-        event.preventDefault();
-    };
-    document.ontouchmove = function(event) {
-        return false;
-    };
-    addEventListener("scroll", function(event) {
-      pageYOffset = 0;
-      console.log(event)
-      console.log(pageYOffset);
-      event.preventDefault();
-      return false;
+    // document.ontouchmove = function(event) {
+    //     event.preventDefault();
+    // };
+    // document.ontouchmove = function(event) {
+    //     return false;
+    // };
+    // addEventListener("scroll", function(event) {
+    //   pageYOffset = 0;
+    //   console.log(event)
+    //   console.log(pageYOffset);
+    //   event.preventDefault();
+    //   return false;
         
-    });
+    // });
 
   },
 
