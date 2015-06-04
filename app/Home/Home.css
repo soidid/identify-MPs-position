@@ -50,8 +50,7 @@
     overflow: hidden;
     min-height: 100vh;
     height: auto;
-    position: fixed;
-  
+   
     -webkit-transition: right .2s ease-in-out;
     transition: right .2s ease-in-out;
 }
