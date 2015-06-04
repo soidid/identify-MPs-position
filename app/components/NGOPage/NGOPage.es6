@@ -23,7 +23,7 @@ export default React.createClass({
           <RightPageBar clickHandler={showNGOPageHandler}
                         icon={"chevron-left"}/>
           
-          NGO PAGE
+          <div className="NGOPage-content">這裡放 NGO 的介紹</div>
           
       </div>);
   }

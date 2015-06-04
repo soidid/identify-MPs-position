@@ -40,8 +40,13 @@ export default React.createClass({
         content = (
           <div>
               <div className="IssueListPage-title">{currentIssue}</div>
+              <div className="IssueListPage-ngo" 
+                   onClick={showNGOPageHandler}>BY {data.ngo}</div>
+
               <div>你為何該關心</div>
               <div>{data.why_you_should_care}</div>
+
+              
 
               <div className="IssueListPage-link" 
                    onClick={setIssueHandler.bind(null, "所有議題")}>看其他議題</div>

@@ -194,6 +194,7 @@ export default React.createClass({
         <div className={issueListPageClasses}>
             <IssueListPage showIssueListPageHandler={this._toggleIssueListPage}
                            showIssuePageHandler={this._toggleIssuePage}
+                           showNGOPageHandler={this._toggleNGOPage}
                            setIssueHandler={this._setCurrentIssue}
                            currentIssue={currentIssue} />
         </div>
