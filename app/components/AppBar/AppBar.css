@@ -5,7 +5,9 @@
 .AppBar {
     width: 100%;
 	height: 40px;
-	background: var(--AppColor);	
+	
+	background: linear-gradient(35deg, rgb(79, 52, 64), rgb(75, 49, 60));
+	background: var(--AppColor);
 }
 .AppBar-issueOptions {
 	max-height: 0px;

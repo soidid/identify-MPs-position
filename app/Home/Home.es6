@@ -260,7 +260,8 @@ export default React.createClass({
             <NGOPage showNGOPageHandler={this._toggleNGOPage} />
         </div>
         
-        <div className={blackLayerClasses}></div>
+        <div className={blackLayerClasses}
+             onClick={this._toggleUserPage}></div>
         <div className={UserPageClasses}>
 
             <UserPage showUserPageHandler={this._toggleUserPage}/>

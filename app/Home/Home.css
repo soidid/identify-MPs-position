@@ -10,6 +10,13 @@
 	overflow: hidden;*/
 	transition: position .2s ease-in-out;
 	position: fixed;
+
+}
+@media screen and (min-width: 600px){
+    .Home-main.is-hide {
+        position: relative;
+    }
+
 }
 .Home-appBar {
     position: fixed;
@@ -20,7 +27,7 @@
     box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.12);
 }
 .Home-content {
-    margin-top: 80px;
+    margin: 80px auto 0 auto;
 }
 .Home-rightPage {
 	overflow: scroll;
@@ -66,6 +73,7 @@
     top: 0px;
     left: 0px;
     width: 100%;
+    max-width: 400px;
     overflow: hidden;
     min-height: 100vh;
     height: auto;
@@ -79,10 +87,15 @@
 }
 .Home-blackLayer.is-show {
     position: fixed;
-    background: rgba(0,0,0,0.2);
+    background: rgba(0,0,0,0.3);
     width: 100%;
     min-height: 100vh;
     z-index: 110;
-    transition: background .25s ease-in-out;
-    
+    transition: background .25s ease-in-out;   
+}
+@media screen and (min-width: 600px){
+    .Home-blackLayer.is-show {
+        display: none;
+    }
+
 }
