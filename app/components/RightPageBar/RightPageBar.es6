@@ -7,15 +7,14 @@ import './RightPageBar.css';
 export default React.createClass({
   
   displayName: "RightPageBar",
-  
- 
+
   render() {
-    var { clickHandler, title } = this.props;
+    var { clickHandler, title, icon } = this.props;
     return (
       <div className="RightPageBar">
           <div className="RightPageBar-leftIcon"
                onClick={clickHandler}>
-              <Icon icon={"chevron-left"}/>
+              <Icon icon={icon}/>
           </div>
           <div className="RightPageBar-title">{title}</div>
       </div>);

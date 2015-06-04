@@ -20,7 +20,8 @@ export default React.createClass({
     var {showNGOPageHandler} = this.props;
     return (
       <div className="NGOPage">
-          <RightPageBar clickHandler={showNGOPageHandler}/>
+          <RightPageBar clickHandler={showNGOPageHandler}
+                        icon={"chevron-left"}/>
           
           NGO PAGE
           

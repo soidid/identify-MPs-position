@@ -1,0 +1,35 @@
+.IssueListPage {
+	background: rgb(250,250,250);
+    min-height: 100vh;
+}
+
+
+.IssueListPage-content {
+	padding: 10px;
+	line-height: 1.6;
+	max-width: 600px;
+	margin: 0 auto;
+}
+.IssueListPage-intro {
+	font-size: 14px;
+	margin-top: 10px;
+	padding: 4px 5px;
+}
+.IssueListPage-title {
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.IssueListPage-link {
+	font-size: 14px;
+	cursor: pointer;
+	color: rgb(120,120,120);
+	display: inline-block;
+	padding-bottom: 1px;
+	border-bottom: 1px solid;
+	margin-top: 40px;
+	margin-bottom: 5px;
+}
+.IssueListPage-link:hover {
+	color: rgb(53,55,54);
+}

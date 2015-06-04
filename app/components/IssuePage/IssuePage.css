@@ -1,9 +1,28 @@
 .IssuePage {
-	
+	background: rgb(250,250,250);
+    min-height: 100vh;
+}
+.IssuePage-link {
+	font-size: 14px;
+	cursor: pointer;
+	display: inline-block;
+	padding-bottom: 1px;
+	border-bottom: 1px solid transparent;
+	margin-bottom: 5px;
+}
+.IssuePage-link:hover {
+	border-bottom: 1px solid rgb(120,120,120);
 }
 .IssuePage-content {
 	padding: 10px;
 	line-height: 1.6;
+	max-width: 600px;
+	margin: 0 auto;
+}
+.IssuePage-intro {
+	font-size: 14px;
+	margin-top: 10px;
+	padding: 4px 5px;
 }
 .IssuePage-title {
 	font-size: 22px;

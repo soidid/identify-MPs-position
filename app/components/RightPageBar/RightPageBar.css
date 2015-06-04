@@ -1,6 +1,11 @@
+:root {
+	--LexiconColor: rgb(220,220,220);
+	--LexiconTextColor: rgb(53,55,54);
+}
 .RightPageBar {
-	background: rgb(200,200,200);
-	height: 40px;
+	background: var(--LexiconColor);
+    height: 40px;
+    color: var(--LexiconTextColor);
 }
 .RightPageBar-leftIcon {
 	display: inline-block;
@@ -14,7 +19,7 @@
 	cursor: pointer;
 }
 .RightPageBar-leftIcon:hover {
-	background: rgba(100,100,100,0.2);
+	background: rgba(0,0,0,0.03);
 }
 .RightPageBar-title {
 	cursor: pointer;

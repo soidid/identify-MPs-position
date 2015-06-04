@@ -3,6 +3,7 @@ import classNames from "classnames";
 import AppBar from "../components/AppBar/AppBar.es6";
 import RecordList from "../components/RecordList/RecordList.es6";
 import SingleRecord from "../components/SingleRecord/SingleRecord.es6";
+import IssueListPage from "../components/IssueListPage/IssueListPage.es6";
 import IssuePage from "../components/IssuePage/IssuePage.es6";
 import NGOPage from "../components/NGOPage/NGOPage.es6";
 
@@ -13,6 +14,7 @@ export default React.createClass({
   getInitialState () {
     return {
       showSingleRecord: false,
+      showIssueListPage: false,
       showIssuePage: false,
       showNGOPage: false,
       currentScrollHeight: 0,
@@ -22,6 +24,7 @@ export default React.createClass({
   },
 
   _setCurrentIssue(value) {
+      console.log("set current issue to:"+value);
       if(value !== this.state.currentIssue){
           window.scrollTo(500, 0);
           console.log(pageYOffset);
@@ -65,6 +68,24 @@ export default React.createClass({
     window.scrollTo(0, 0);
   },
 
+  _toggleIssueListPage(){
+    console.log("toogle issue list");
+
+    this.setState({
+      showIssueListPage: !this.state.showIssueListPage
+    })
+
+    //Saving current scrolling position
+    if(this.state.currentScrollHeight===0){
+        this.setState({
+          currentScrollHeight: pageYOffset
+        })
+        
+    }
+    window.scrollTo(0, 0);
+  },
+
+
   _toggleIssuePage(){
     this.setState({
       showIssuePage: !this.state.showIssuePage
@@ -99,11 +120,11 @@ export default React.createClass({
   componentDidUpdate(){
     //如果是從 single record page 或 issue page 退出回到主頁，要 scroll 到原本離開的位置
 
-    var {currentScrollHeight, showSingleRecord, showIssuePage, showNGOPage} = this.state;
+    var {currentScrollHeight, showSingleRecord, showIssueListPage, showIssuePage, showNGOPage} = this.state;
 
     console.log("component did upate, scrolling height:"+currentScrollHeight);
 
-    if((currentScrollHeight!==0 && showSingleRecord === false && showIssuePage === false && showNGOPage === false)){ 
+    if((currentScrollHeight!==0 && showSingleRecord === false && showIssuePage === false && showIssueListPage === false && showNGOPage === false)){ 
         console.log("reload scroll position");
         window.scrollTo(0, currentScrollHeight);
         this.setState({
@@ -120,16 +141,20 @@ export default React.createClass({
   },
 
   render() {
-    var { currentIssue, showSingleRecord, showIssuePage, showNGOPage, currentRecord } = this.state;
+    var { currentIssue, showSingleRecord, showIssueListPage, showIssuePage, showNGOPage, currentRecord } = this.state;
 
     var mainClasses = classNames({
         "Home-main" : true,
-        "is-hide" : showSingleRecord || showIssuePage
+        "is-hide" : showSingleRecord || showIssuePage || showIssueListPage || showNGOPage
     })
    
     var singleRecordClasses = classNames({
         "Home-rightPage" : true,
         "is-show" : showSingleRecord
+    })
+    var issueListPageClasses = classNames({
+        "Home-rightPage" : true,
+        "is-show" : showIssueListPage
     })
     var issuePageClasses = classNames({
         "Home-rightPage" : true,
@@ -147,7 +172,7 @@ export default React.createClass({
             <div className="Home-appBar">
               <AppBar filterPanelHandler={this._toggleFilterPanel}
                       setIssueHandler={this._setCurrentIssue}
-                      showIssuePageHandler={this._toggleIssuePage}
+                      showIssueListPageHandler={this._toggleIssueListPage}
                       currentIssue={currentIssue}/>
             </div>
             <div className="Home-content">
@@ -165,11 +190,18 @@ export default React.createClass({
                           currentRecord={currentRecord}
                           setCurrentRecordHandler={this._setCurrentRecord} />
         </div>
-
+        
+        <div className={issueListPageClasses}>
+            <IssueListPage showIssueListPageHandler={this._toggleIssueListPage}
+                           showIssuePageHandler={this._toggleIssuePage}
+                           setIssueHandler={this._setCurrentIssue}
+                           currentIssue={currentIssue} />
+        </div>
         <div className={issuePageClasses}>
             <IssuePage showIssuePageHandler={this._toggleIssuePage}
                        showNGOPageHandler={this._toggleNGOPage}
-                       currentIssue={currentIssue} />
+                       currentIssue={currentIssue}
+                       setIssueHandler={this._setCurrentIssue} />
         </div>
 
          <div className={NGOPageClasses}>

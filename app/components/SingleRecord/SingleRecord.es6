@@ -26,7 +26,8 @@ export default React.createClass({
     var record = (data !== undefined)? <Record data={data} {...this.props}/>: "";
     return (
       <div className="SingleRecord">
-          <RightPageBar clickHandler={showSingleRecordHandler}/>
+          <RightPageBar clickHandler={showSingleRecordHandler}
+                        icon={"chevron-left"}/>
           {record}
 
           
