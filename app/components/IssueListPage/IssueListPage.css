@@ -14,12 +14,23 @@
 	padding: 10px;
 	line-height: 1.6;
 	max-width: 600px;
-	margin: 0 auto;
+	background: white;
+	margin: 5px;
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.12),-1px 1px 1px 0 rgba(0,0,0,0.12);
+}
+@media screen and (min-width: 600px){
+	.IssueListPage-content {
+		margin: 5px auto;
+	}
+
 }
 .IssueListPage-intro {
 	font-size: 14px;
 	margin-top: 10px;
 	padding: 4px 5px;
+}
+.IssueListPage-header {
+	padding-left: 2px;
 }
 .IssueListPage-title {
 	font-size: 22px;
@@ -38,4 +49,11 @@
 }
 .IssueListPage-link:hover {
 	color: rgb(53,55,54);
+}
+.IssueListPage-block {
+	margin: 20px auto;
+}
+.IssueListPage-blockTitle {
+	font-weight: 600;
+	color: rgb(80,80,80);
 }

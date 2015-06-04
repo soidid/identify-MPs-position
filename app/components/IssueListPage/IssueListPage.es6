@@ -39,12 +39,15 @@ export default React.createClass({
         var data = Data[currentIssue];
         content = (
           <div>
-              <div className="IssueListPage-title">{currentIssue}</div>
-              <div className="IssueListPage-ngo" 
-                   onClick={showNGOPageHandler}>BY {data.ngo}</div>
-
-              <div>你為何該關心</div>
-              <div>{data.why_you_should_care}</div>
+              <div className="IssueListPage-header">
+                <div className="IssueListPage-title">{currentIssue}</div>
+                <div className="IssueListPage-ngo" 
+                     onClick={showNGOPageHandler}>BY {data.ngo}</div>
+              </div>
+              <div className="IssueListPage-block"> 
+                <div className="IssueListPage-blockTitle">你為何該關心</div>
+                <div>{data.why_you_should_care}</div>
+              </div>
 
               
 
