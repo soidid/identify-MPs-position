@@ -24,7 +24,6 @@
 .RightPageBar-title {
 	cursor: pointer;
 	position: absolute;
-  	height: 100%;
   	top: 0;
   	padding-top: 12px;
   	font-weight: 600;
