@@ -22,7 +22,7 @@ module.exports = {
     loaders: [
       { test: /\.(js|jsx|es6)$/, exclude:/node_modules/, loaders: es6Loaders.concat(["babel-loader"]) },
       { test: /\.css$/, loader: "style-loader!css-loader!postcss-loader" },
-      { test: /\.(jpg|png|svg)$/, loader: "url-loader"}
+      { test: /\.(jpg|png|svg)$/, loader: "url-loader?limit=8192"}// inline base64 URLs for <=8k images, direct URLs for the rest
     ]
   },
   postcss: [
