@@ -9,7 +9,7 @@
   "scripts": {
     "start-dev": "babel-node app.es6",
     "start": "NODE_ENV=production babel-node app.es6",
-    "build": "webpack -p --progress --profile --colors",
+    "build": "webpack",
     "test": "jest"
   },
   "author": "Yuanhsiang Cheng <lyforever62@hotmail.com>",

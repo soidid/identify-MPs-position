@@ -86,7 +86,7 @@
 
 }
 .Home-blackLayer {
-
+    cursor: pointer;
 }
 .Home-blackLayer.is-show {
     position: fixed;

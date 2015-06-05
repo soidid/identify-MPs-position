@@ -28,11 +28,15 @@ export default React.createClass({
           <RightPageBar clickHandler={showHistoryPageHandler}
                          icon={"remove"}
                          title={"標記紀錄"}/>
-          <div>將管碧玲的質詢發言：「」標記為</div>
-          <span onClick={this._onClick}>
-             view post
-
-          </span>
+          
+          <div className="HistoryPage-record">
+              <div>將管碧玲的質詢發言：「」標記為</div>
+    
+              <span className="HistoryPage-link" 
+                    onClick={this._onClick}>
+                    view post
+              </span>
+          </div>
       </div>);
   }
 });

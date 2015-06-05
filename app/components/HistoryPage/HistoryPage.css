@@ -3,3 +3,12 @@
 	min-height: 100vh;
 	z-index: 110;
 }
+.HistoryPage-record {
+	padding: 20px;
+}
+.HistoryPage-link {
+	cursor: pointer;
+}
+.HistoryPage-link:hover {
+	text-decoration: underline;
+}
