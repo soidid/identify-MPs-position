@@ -48,13 +48,11 @@ export default React.createClass({
     return (
       <div className="Select">
           <div className="Select-select"
-               onClick={this._toggleOptionPanel}>{currentValue}
+               onClick={this._toggleOptionPanel}>
+              <span className="Select-currentValue">{currentValue}</span>
               <span className="Select-selectIcon"><Icon icon={"angle-down"}/></span>
           </div>
           <ul className={panelClasses}>{optionItems}</ul>
-
-         
-          
       </div>);
   }
 });

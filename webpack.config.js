@@ -15,7 +15,7 @@ module.exports = {
   entry: entry.concat(["./app/app.es6"]),
   output: {
     path: __dirname + "/build",
-    publicPath:"build/",
+    publicPath:"/build/", /* github pages needs 'build/', local neesd '/build/' */
     filename: "bundle.js"
   },
   module: {
@@ -33,8 +33,8 @@ module.exports = {
     require("postcss-color-function")()
   ],
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
+    new webpack.HotModuleReplacementPlugin()
+    //new webpack.optimize.UglifyJsPlugin({minimize: true}) 有 Uglify, HMR 就會 GG
   ],
   resolve: {
     extensions: ["", ".web.js", ".js", ".jsx", ".es6"]

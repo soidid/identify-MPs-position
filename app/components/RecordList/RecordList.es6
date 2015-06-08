@@ -49,7 +49,7 @@ export default React.createClass({
 
   render() {
    
-    var { opinion, subject, showSingleRecordHandler, showIssuePageHandler, currentIssue } = this.props;
+    var { opinion, subject, showSingleRecordHandler, showIssuePageHandler, currentIssue, setIssueHandler } = this.props;
     var { currentTab, showFilterPanel, currentParty, currentPosition } = this.state;
    
     var data = Data.data;
@@ -86,7 +86,8 @@ export default React.createClass({
                                partyHandler={this._onSetParty}
                                positionHandler={this._onSetPosition}
                                currentParty={currentParty}
-                               currentPosition={currentPosition}/>
+                               currentIssue={currentIssue}
+                               setIssueHandler={setIssueHandler}/>
               {content}
           </div>
 

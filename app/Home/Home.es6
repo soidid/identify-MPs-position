@@ -245,7 +245,8 @@ export default React.createClass({
                           showIssuePageHandler={this._toggleIssuePage}
                           showNGOPageHandler={this._toggleNGOPage}
                           currentIssue={currentIssue}
-                          setCurrentRecordHandler={this._setCurrentRecord}/>
+                          setCurrentRecordHandler={this._setCurrentRecord}
+                          setIssueHandler={this._setCurrentIssue}/>
             </div>
         </div>
 

@@ -42,7 +42,6 @@ export default class Record extends React.Component {
         <div className="Record-tooltip">
             <div className="Record-tooltipItem">複製連結</div>
             <div className="Record-tooltipItem">看立法院原始資料</div>
-            <div className="Record-tooltipItem">檢舉</div>
         </div> : ""; 
   
     var userImg = require("./user.jpg");

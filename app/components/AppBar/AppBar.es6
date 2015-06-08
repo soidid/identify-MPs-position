@@ -27,26 +27,8 @@ export default React.createClass({
 
   render() {
     var { showIssueOptions} = this.state;
-    var { setIssueHandler, currentIssue, showIssueListPageHandler, showUserPageHandler } = this.props
+    var { showIssueListPageHandler, showUserPageHandler } = this.props
 
-    var issueOptionClasses = classNames({
-        "AppBar-issueOptions" : true,
-        "is-show" : showIssueOptions
-    });
-    var toggleIcon = (showIssueOptions) ? "angle-up" : "angle-down";
-
-    var issue_options = ["所有議題","勞工權益","婚姻平權","監督條例","罷免下修","食安","兩稅合一","核能"]
-    var issueItems = issue_options.map((value, k)=>{
-        var classses = classNames({
-          "AppBar-issueOptionItem" : true,
-          "is-active" : currentIssue === value
-        })
-        return <div className={classses}
-                   key={k} 
-                   onClick={this._setIssue.bind(null,value)}>{value}</div>
-    });
-
-  
 
     return (
       <div className="AppBar">
@@ -54,14 +36,7 @@ export default React.createClass({
                onClick={showUserPageHandler}>
                <Icon icon={"user"}/>
           </div>
-          <div className="AppBar-title" 
-               onClick={this._toggleIssueOptions}>
-               <span className="AppBar-titleText">{currentIssue}</span>
-               <Icon icon={toggleIcon}/></div>
           
-          <div className={issueOptionClasses}>
-              {issueItems}
-          </div>
 
           <div className="AppBar-right">
               <div className="AppBar-item"

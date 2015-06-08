@@ -4,7 +4,7 @@
 }
 
 .ListFilterPanel-tabs {
-	margin: 30px 0 0px 0;
+	margin: 50px 0 20px 0;
 }
 .ListFilterPanel-tab {
 	display: inline-block;
@@ -22,7 +22,10 @@
 	color: var(--AppTextColor);
     background: var(--AppColor);
 }
-
+.ListFilterPanel-filterPanels {
+	background: #f3f3f3;
+	padding: 20px 0;
+}
 .ListFilterPanel-filterPanel {
 	max-height: 0px;
 	overflow: hidden;
@@ -45,6 +48,9 @@
     margin-top: 20px;
     padding: 10px 20px;
     text-align: right;
+    position: absolute;
+    right: 0;
+    top: 32px;
 }
 .ListFilterPanel-toggleFilter.is-active {
 	color: var(--AppColor);
@@ -58,4 +64,41 @@
 .ListFilterPanel-selectItem {
 	margin: 20px;
 	text-align: left;
+}
+/*-------- */
+
+.ListFilterPanel-currentIssue {
+	padding: 10px;
+}
+.ListFilterPanel-issueOptions {
+	max-height: 0px;
+	margin: 0 auto;
+	overflow: hidden;
+	background: white;	
+
+}
+.ListFilterPanel-issueOptions.is-show {
+
+	max-height: 400px;
+	box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.12);
+	transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+	-webkit-transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+}
+
+.ListFilterPanel-issueOptionItem {
+	list-style: none;
+	padding: 14px;
+	text-align: center;
+	padding-right: 16px;
+	cursor: pointer;
+}
+.ListFilterPanel-issueOptionItem:hover {
+	background: #f3f3f3;
+	cursor: pointer;
+}
+.ListFilterPanel-issueOptionItem.is-active {
+	border-left: 8px solid var(--AppColor);
+	border-right: 8px solid transparent;
+	font-weight: 600;
+	color: var(--AppColor);
 }

@@ -11,7 +11,7 @@ export default React.createClass({
   getInitialState() {
     return {
       showPartyPanel: false,
-      showPositionPanel: false
+      showIssueOptions: false
     };
   },
 
@@ -21,9 +21,15 @@ export default React.createClass({
       })
   },
 
+   _toggleIssueOptions(){
+      this.setState({
+        showIssueOptions: !this.state.showIssueOptions
+      })
+  },
+
   render() {
-    var {currentTab, showFilterPanel, tabHandler, filterHandler, partyHandler, positionHandler, currentParty, currentPosition} = this.props;
-    var {showPartyPanel, showPositionPanel} = this.state;
+    var {currentTab, showFilterPanel, tabHandler, filterHandler, partyHandler, currentParty, currentIssue, setIssueHandler} = this.props;
+    var {showPartyPanel, showIssueOptions} = this.state;
    
 
     ////////
@@ -72,34 +78,37 @@ export default React.createClass({
         )
     });
 
-     var positionOptionClasses = classNames({
-        "ListFilterPanel-options" : true,
-        "is-show" : showPartyPanel
-    });
-    var positions = ["所有立場","支持","反對","不明"];
-    var positionItems = positions.map((value,i)=>{
-        return (
-          <li className="ListFilterPanel-option"
-              key={i}>{value}</li>
-        )
-    });
+    ///
 
+    var issueOptionClasses = classNames({
+        "ListFilterPanel-issueOptions" : true,
+        "is-show" : showIssueOptions
+    });
+    var toggleIcon = (showIssueOptions) ? "angle-up" : "angle-down";
+
+    var issuesOptions = ["所有議題","勞工權益","婚姻平權","監督條例","罷免下修","食安","兩稅合一","核能"]
+   
 
     return (
         <div className="ListFilterPanel">
-          <div className="ListFilterPanel-tabs">{tabsItem}</div>
-          <div className={filterToggleClasses}
-               onClick={filterHandler}><Icon icon={"cog"}/>
-               <span className="ListFilterPanel-text">進階搜尋</span></div>
-          <div className={filterPanelClasses}>
-            
-              <Select options={parties}
-                      setValueHandler={partyHandler}
-                      currentValue={currentParty} />
-              <Select options={positions}
-                      setValueHandler={positionHandler}
-                      currentValue={currentPosition} />
+
+          <div className="ListFilterPanel-filterPanels ">
+              <Select options={issuesOptions}
+                      setValueHandler={setIssueHandler}
+                      currentValue={currentIssue} />
+              <div className={filterToggleClasses}
+                   onClick={filterHandler}><Icon icon={"cog"}/>
+                   <span className="ListFilterPanel-text">進階搜尋</span>
+              </div>
+    
+              <div className={filterPanelClasses}>
+                  <Select options={parties}
+                          setValueHandler={partyHandler}
+                          currentValue={currentParty} />
+              </div>
           </div>
+
+          <div className="ListFilterPanel-tabs">{tabsItem}</div>
         </div>
     );
 
@@ -108,15 +117,7 @@ export default React.createClass({
   }
 });
 
-  // <div className="ListFilterPanel-selectItem">
-  //                 <div className="ListFilterPanel-select"
-  //                      onClick={this._togglePartyPanel}>所有政黨 
-  //                     <span className="ListFilterPanel-selectIcon"><Icon icon={"angle-down"}/></span>
-  //                 </div>
-  //                 <ul className={partyOptionClasses}>{partyItems}</ul>
-                 
-  //             </div>
 
-
+         
 
 
