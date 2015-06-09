@@ -127,3 +127,24 @@
     will-change: top;
 
 }
+.Home-tootip {
+    color: gray;
+    text-align: center;
+    background: white;
+    max-height: 0px;
+    overflow: hidden;
+    position: fixed;
+    top: 40px;
+    right: 0;
+    z-index: 200;
+}
+.Home-tootip:after {
+
+}
+.Home-tootip.is-show {
+    padding: 12px;
+    max-height: 400px;
+    transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+    webkit-transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+    box-shadow: -2px 2px 2px 0px rgba(0,0,0,0.12);
+}

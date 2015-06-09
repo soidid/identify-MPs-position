@@ -2,7 +2,7 @@
     --AppColor: rgb(234,94,91);
     --AppTextColor: white;
 }
-.Record {
+.Record, .Record:visited {
 	display: inline-block;
 	border: 1px solid rgb(220,220,220);
 	width: calc(100% - 10px);

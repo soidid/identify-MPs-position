@@ -1,3 +1,7 @@
+:root {
+    --AppColor: rgb(234,94,91);
+    --AppTextColor: white;
+}
 .Select {
     margin: 10px;
 }
@@ -6,7 +10,7 @@
     font-size: 18px;
     font-weight: 800;
     position: relative;
-    padding: 0px 42px 8px 6px;
+    padding: 0px 12px 8px 6px;
     border-bottom: 1px solid rgb(130,130,130);
     display: inline-block;
     width: 160px;
@@ -14,7 +18,7 @@
 }
 .Select-currentValue {
   display: inline-block;
-  margin-left: 40px;
+  
 }
 .Select-selectIcon {
 	position: absolute;
@@ -40,4 +44,11 @@ li.Select-option {
    background: white;
    margin-bottom: 1px;
    box-shadow: 1px 1px 2px 0 rgba(0,0,0,0.12);
+   border-left: 5px solid transparent;
+   border-right: 10px solid transparent;
 }
+li.Select-option:hover {
+   border-left: 5px solid var(--AppColor); 
+}
+
+

@@ -2,9 +2,11 @@ import React from "react";
 import Router, {Route, DefaultRoute} from "react-router";
 import Application from "./Application";
 import Home from "./Home/Home.es6";
+import PostPage from "./PostPage/PostPage.es6";
 
 const routes = (
   <Route name="app" path="/" handler={Application} >
+    <Route name="post" path="/post/:postID" handler={PostPage} />
     <DefaultRoute handler={Home} />
   </Route>
   );

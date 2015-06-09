@@ -2,7 +2,9 @@
     --AppColor: rgb(234,94,91);
     --AppTextColor: white;
 }
-
+.ListFilterPanel {
+	position: relative;
+}
 .ListFilterPanel-tabs {
 	margin: 50px 0 20px 0;
 }
@@ -36,8 +38,8 @@
 }
 .ListFilterPanel-filterPanel.is-show {
     max-height: 500px;
-    transition: all .2s cubic-bezier(0, 1, 0.5, 1);
-	-webkit-transition: all .2s cubic-bezier(0, 1, 0.5, 1);
+    transition: all .5s cubic-bezier(0, 1, 0.5, 1);
+	-webkit-transition: all .5s cubic-bezier(0, 1, 0.5, 1);
 }
 .ListFilterPanel-filterPanelVisible {
 	background: #f3f3f3;
@@ -45,21 +47,16 @@
 .ListFilterPanel-toggleFilter {
 	color: rgb(180,180,180);
     font-size: 14px;
-    margin-top: 20px;
-    padding: 10px 20px;
-    text-align: right;
-    position: absolute;
-    right: 0;
-    top: 32px;
+   
 }
 .ListFilterPanel-toggleFilter.is-active {
-	color: var(--AppColor);
+	
 	transition: all .2s cubic-bezier(0, 1, 0.5, 1);
     webkit-transition: all .2s cubic-bezier(0, 1, 0.5, 1);
 }
 .ListFilterPanel-text:hover {
 	padding-bottom: 2px;
-    border-bottom: 1px solid;
+    
 }
 .ListFilterPanel-selectItem {
 	margin: 20px;

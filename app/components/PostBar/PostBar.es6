@@ -3,11 +3,11 @@ import {Link} from "react-router";
 import classNames from "classnames";
 
 import Icon from "../Icon/Icon.es6";
-import './AppBar.css';
+import './PostBar.css';
 
 export default React.createClass({
   
-  displayName: "AppBar",
+  displayName: "PostBar",
   
   getInitialState() {
     return {
@@ -32,24 +32,8 @@ export default React.createClass({
 
 
     return (
-      <div className="AppBar">
-          <div className="AppBar-left">
-          <div className="AppBar-item"
-               onClick={showUserPageHandler}>
-               <Icon icon={"user"}/>
-          </div>
-          </div>
-          
-          <Link className="AppBar-title" to="app">立場調查團</Link>
-          <div className="AppBar-right">
-              <div className="AppBar-item"
-                   onClick={showIssueListPageHandler}>
-                  <Icon icon={"book"}/>
-              </div>
-          </div>
-
-         
-          
+      <div className="PostBar">
+          <Link className="PostBar-title" to="app">立場調查團</Link>
       </div>);
   }
 });

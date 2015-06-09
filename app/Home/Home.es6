@@ -2,7 +2,6 @@ import React from "react";
 import classNames from "classnames";
 import AppBar from "../components/AppBar/AppBar.es6";
 import RecordList from "../components/RecordList/RecordList.es6";
-import SingleRecord from "../components/SingleRecord/SingleRecord.es6";
 
 import IssueListPage from "../components/IssueListPage/IssueListPage.es6";
 import IssuePage from "../components/IssuePage/IssuePage.es6";
@@ -19,7 +18,7 @@ export default React.createClass({
     return {
       showSingleRecord: false,
       showIssueListPage: false,
-      showIssuePage: false,
+      showTooltip: false,
       showNGOPage: false,
       showUserPage: false,
       showHistoryPage: false,
@@ -37,6 +36,11 @@ export default React.createClass({
           this.setState({
             currentIssue: value,
             showIssueOptions: false
+          });
+      }
+      if(value!=="所有議題"){
+          this.setState({
+            showTooltip: false
           });
       }
   },
@@ -74,10 +78,16 @@ export default React.createClass({
 
   _toggleIssueListPage(){
     console.log("toogle issue list");
-
-    this.setState({
-      showIssueListPage: !this.state.showIssueListPage
-    })
+    
+    if(this.state.currentIssue !== "所有議題"){
+        this.setState({
+          showIssueListPage: !this.state.showIssueListPage
+        })
+    }else{
+        this.setState({
+          showTooltip: !this.state.showTooltip
+        })
+    }
 
     //Saving current scrolling position
     if(this.state.currentScrollHeight===0){
@@ -89,21 +99,6 @@ export default React.createClass({
     window.scrollTo(0, 0);
   },
 
-
-  _toggleIssuePage(){
-    this.setState({
-      showIssuePage: !this.state.showIssuePage
-    })
-
-    //Saving current scrolling position
-    if(this.state.currentScrollHeight===0){
-        this.setState({
-          currentScrollHeight: pageYOffset
-        })
-        
-    }
-    window.scrollTo(0, 0);
-  },
 
   _toggleNGOPage(){
     this.setState({
@@ -148,7 +143,7 @@ export default React.createClass({
     //如果是從 single record page 或 issue page 退出回到主頁，要 scroll 到原本離開的位置
 
     var {currentScrollHeight, 
-         showSingleRecord, showIssueListPage, showIssuePage, showNGOPage, showUserPage} = this.state;
+         showSingleRecord, showIssueListPage, showTooltip, showNGOPage, showUserPage} = this.state;
 
     console.log("component did upate, scrolling height:"+currentScrollHeight);
 
@@ -186,9 +181,10 @@ export default React.createClass({
   },
 
   render() {
-    var { currentIssue, showSingleRecord, showIssueListPage, showIssuePage, showNGOPage, currentRecord, showUserPage, currentScrollHeight, showHistoryPage } = this.state;
+    var { currentIssue, showSingleRecord, showIssueListPage, showTooltip,
+          showNGOPage, currentRecord, showUserPage, currentScrollHeight, showHistoryPage } = this.state;
 
-    var shouldHide = showSingleRecord || showIssuePage || showIssueListPage || showNGOPage || showUserPage || showHistoryPage;
+    var shouldHide = showSingleRecord || showIssueListPage || showNGOPage || showUserPage || showHistoryPage;
     var mainClasses = classNames({
         "Home-main" : true,
         "is-hide" : shouldHide
@@ -197,18 +193,19 @@ export default React.createClass({
         "transform" : `translate3d(0,${-currentScrollHeight}px,0)`
     }: {};
    
-    var singleRecordClasses = classNames({
-        "Home-rightPage" : true,
-        "is-show" : showSingleRecord
-    })
+   
     var issueListPageClasses = classNames({
         "Home-rightPage" : true,
         "is-show" : showIssueListPage
     })
-    var issuePageClasses = classNames({
-        "Home-rightPage" : true,
-        "is-show" : showIssuePage
+
+
+    var tooltipClasses = classNames({
+        "Home-tootip" : true,
+        "is-show" : showTooltip
     })
+   
+
     var NGOPageClasses = classNames({
         "Home-rightPage" : true,
         "is-show" : showNGOPage
@@ -241,6 +238,7 @@ export default React.createClass({
         <div className={mainClasses} style={mainStyle}>
 
             <div className="Home-content">
+              <div className={tooltipClasses}>請先選擇議題</div>
               <RecordList showSingleRecordHandler={this._toggleSingleRecord}
                           showIssuePageHandler={this._toggleIssuePage}
                           showNGOPageHandler={this._toggleNGOPage}
@@ -250,12 +248,6 @@ export default React.createClass({
             </div>
         </div>
 
-        <div className={singleRecordClasses}>
-            <SingleRecord showSingleRecordHandler={this._toggleSingleRecord}
-                          showNGOPageHandler={this._toggleNGOPage}
-                          currentRecord={currentRecord}
-                          setCurrentRecordHandler={this._setCurrentRecord} />
-        </div>
         
         <div className={issueListPageClasses}>
             <IssueListPage showIssueListPageHandler={this._toggleIssueListPage}
@@ -264,12 +256,7 @@ export default React.createClass({
                            setIssueHandler={this._setCurrentIssue}
                            currentIssue={currentIssue} />
         </div>
-        <div className={issuePageClasses}>
-            <IssuePage showIssuePageHandler={this._toggleIssuePage}
-                       showNGOPageHandler={this._toggleNGOPage}
-                       currentIssue={currentIssue}
-                       setIssueHandler={this._setCurrentIssue} />
-        </div>
+       
 
         <div className={NGOPageClasses}>
             <NGOPage showNGOPageHandler={this._toggleNGOPage} />

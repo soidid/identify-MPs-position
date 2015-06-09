@@ -63,6 +63,8 @@ export default React.createClass({
         "is-show": showFilterPanel
     });
 
+    var filterText = (showFilterPanel)? "隱藏進階搜尋" : "進階搜尋";
+
     //////
 
     var partyOptionClasses = classNames({
@@ -89,6 +91,7 @@ export default React.createClass({
     var issuesOptions = ["所有議題","勞工權益","婚姻平權","監督條例","罷免下修","食安","兩稅合一","核能"]
    
 
+
     return (
         <div className="ListFilterPanel">
 
@@ -96,15 +99,17 @@ export default React.createClass({
               <Select options={issuesOptions}
                       setValueHandler={setIssueHandler}
                       currentValue={currentIssue} />
-              <div className={filterToggleClasses}
-                   onClick={filterHandler}><Icon icon={"cog"}/>
-                   <span className="ListFilterPanel-text">進階搜尋</span>
-              </div>
+              
     
               <div className={filterPanelClasses}>
                   <Select options={parties}
                           setValueHandler={partyHandler}
                           currentValue={currentParty} />
+              </div>
+
+              <div className={filterToggleClasses}
+                   onClick={filterHandler}>
+                   <span className="ListFilterPanel-text">{filterText}</span>
               </div>
           </div>
 

@@ -49,10 +49,6 @@ export default React.createClass({
                 <div>{data.why_you_should_care}</div>
               </div>
 
-              
-
-              <div className="IssueListPage-link" 
-                   onClick={setIssueHandler.bind(null, "所有議題")}>看其他議題</div>
           </div>
         )
     }

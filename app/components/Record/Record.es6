@@ -73,8 +73,8 @@ export default class Record extends React.Component {
 
     
     return (
-        <div className="Record">
-            <div className="Record-topRight" onClick={this._onToggleShowTooltip.bind(this, null)}>
+        <Link className="Record" to="post" params={{postID: data.id}}>
+            <div className="Record-topRight" >
                 <span className="Record-more"><Icon icon={"ellipsis-v"}/> 
                 </span>
                 {tooltip}
@@ -85,8 +85,7 @@ export default class Record extends React.Component {
                 <div className="Record-meta">／{data.type}</div>
                 <div className="Reocrd-date">{data.date}</div>
             </div>
-            <div className="Record-quote"
-                 onClick={setCurrentRecordHandler.bind(null, data.id)}>
+            <div className="Record-quote">
                {data.quote}
             </div>
              <div className="Record-editedBy">
@@ -94,7 +93,7 @@ export default class Record extends React.Component {
                            onClick={showNGOPageHandler}>勞工陣線</span> 摘錄
             </div>
             {actionItem}
-        </div>
+        </Link>
     );
 
 
@@ -103,6 +102,6 @@ export default class Record extends React.Component {
 }
 
 
-
+// onClick={this._onToggleShowTooltip.bind(this, null)}
 
 
